@@ -1,0 +1,290 @@
+.main-header {
+    background-color: #0b0b0d;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem;
+    position: fixed;
+    width: 100%;
+	height: auto;
+    top: 0;
+    z-index: 20;
+	margin-bottom: 0;
+	flex: 1;
+
+    .input-burger {
+        display: none;
+    }
+
+    .burger-menu {
+        color: white;
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        display: none;
+		margin-bottom: 0;
+    }
+
+
+    .main-header-left {
+        display: flex;
+		padding: 0;
+		margin: 0;
+		
+    }
+
+
+    .main-logo {
+        place-content: center;
+		contain: content;
+		
+
+		
+        .main-logo-img {
+            height: 4rem;
+            object-fit: cover;
+			padding: 0;
+			margin: auto 0;
+        }
+		
+    }
+
+    .user {
+        display: flex;
+        align-items: center;
+		justify-content: center;
+        gap: 1rem;
+        padding: 0 1rem;
+
+        .avatar {
+            display: flex;
+            align-items: center;
+
+            img {
+				display: flex;
+                width: 2.5rem;
+                height: 2.5rem;
+            }
+        }
+
+        .order {
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color .25s ease-in-out;
+            position: relative;
+            &:hover {
+                color: #222222;
+            }
+
+            .order-count {
+                background-color: crimson;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: .75rem;
+                /* line-height: 1rem; */
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                right: -10px;
+                top: -10px;
+                border-radius: 50%;
+            }
+        }
+    }
+}
+
+.main-header .nav-list {
+    list-style: none;
+    display: flex;
+	margin-bottom: 0;
+	padding: 0;
+	line-height: normal;
+}
+
+.main-header .nav-item {
+    display: flex;
+	margin-bottom: 0;
+	padding: 0;
+}
+
+.main-header .nav-link {
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1rem;
+    align-items: center;
+    transition: background-color 0.3s;
+	margin: 0 auto;
+}
+
+.main-header .nav-link:hover {
+    background-color: #390c7d;
+}
+
+.nav-list {
+	padding: 0;
+	margin: 0;
+}
+.nav-item{
+	line-height: 2rem;
+}
+
+@media screen and (width <= 825px) {
+	.main-header {
+		position: fixed;
+		/* justify-content: space-between; */
+		flex: 1;
+		z-index: 100;
+		height: 4rem;
+		width: 100%;
+		/* flex-shrink: 1; */
+		
+
+		.burger-menu {
+			display: flex;
+		}
+
+		.burgerline{
+			width: 1.5rem;
+			height: 0.125rem;
+			background-color: white;
+			position: relative;
+		}
+		.burgerline::before, .burgerline::after {
+			content: "";
+			width: 1.5rem;
+			height: 0.125rem;
+			background-color: white;
+			position: absolute;
+			top: -0.3125rem;
+			transition: transform 0.3s ease-in-out;
+		}
+
+		.burgerline::after {
+			top: 0.3125rem;
+		}
+
+		.input-burger:checked ~ .main-header-left .main-nav{
+			left: 0;
+			top: 4rem;
+			visibility: visible;
+		}
+
+		.input-burger:checked ~ .burger-menu .burgerline {
+			background-color: transparent;
+		}
+		.input-burger:checked ~ .burger-menu .burgerline::before {
+			transform: rotate(-45deg);
+			top: 0;
+		}
+
+		.input-burger:checked ~ .burger-menu .burgerline::after {
+			transform: rotate(45deg);
+			top: 0;
+		}
+
+		.main-nav {
+			position: fixed;
+			top: 0;
+			left: -18.75rem;
+			height: fit-content;
+			width: 12rem;
+			z-index: 5;
+			background-color: rgb(28, 18, 119);
+			transition: all 0.3s ease-in-out;
+		}
+
+		.nav-list {
+			flex-direction: column;
+			z-index: 100;
+			
+		
+			.nav-item {
+				display: block;
+				border-bottom: 1px solid rgb(43, 25, 205);
+				z-index: 100;
+
+			.nav-item:hover{
+				background-color: #530fba;
+				z-index: 101;
+				cursor: pointer;
+			}
+				
+
+			}
+		}
+		.user {
+			display: flexbox;
+			height: 2rem;
+			width: auto;
+			/* padding-right: 2rem; */
+			margin: auto 0;
+			flex-wrap: nowrap;
+			
+			.order {
+				position: relative;
+				margin: auto 0;
+			
+				.order-count {
+					position: absolute;
+				}
+			}
+		}
+	}
+
+	.burger-menu .nav-list .user {
+		display: inline-block;
+		justify-content: space-around;
+	}
+
+}
+
+
+
+/* comienzo estilos titulo y subtitulo*/
+
+.main-container {
+	background-color: transparent;
+	flex-grow: 1;
+	width: 90%;
+	height: auto;
+	margin: 1.25rem auto;
+	flex-wrap: wrap;
+}
+
+.titulo-sub-container {
+	width: 70%;
+	height: auto;
+	margin: 1rem auto;
+	background-color: white;
+	opacity: 1;
+	flex-shrink: 1;
+	contain: content;
+	text-align: center;
+	margin: 3rem auto;
+
+}
+
+
+.titulo-sub-container .section-title {
+	font-size: 2rem;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: 900;
+	color: rgb(33, 5, 94);
+}
+
+
+.titulo-sub-container .section-subtitle {
+	font-size: 1rem;
+	margin-bottom: 1rem;
+	text-transform: uppercase;
+	color: rgb(33, 5, 94);
+	font-weight: 600;
+	text-align: center;
+	
+}
+
+/* fin estilo de titulo y subtitulo*/

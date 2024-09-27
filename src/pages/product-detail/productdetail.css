@@ -1,0 +1,289 @@
+.product-main-container{
+    display: flex;
+    flex-direction: row;
+	flex-wrap: nowrap;
+    height: auto;
+    width: 80%;
+    margin: 3rem auto;
+	border-radius: 5%;
+	contain: content;
+	background-image: url("https://i.postimg.cc/d1cPZVTc/fondo-detail-oscuro.webp");
+	background-size: cover;
+	flex: 1;
+}
+
+.main-header-product {
+    display: inline;
+    width: fit-content;
+    height: fit-content;
+	margin: auto;
+	padding-left: 0;
+}
+
+.titulo{
+    font-size: 3rem;
+    font-weight: 800;
+    text-align: center;
+    margin: 1rem 0;
+	
+}
+
+.section-img {
+    width: 50%;
+    height: auto;
+    display: inline-block;
+	background-color: none;
+	margin: auto;
+	align-items: center;
+	justify-content: first baseline;
+	contain: content;
+	
+
+}
+
+.img-container>img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18rem;
+    height: auto;
+    margin: auto;
+	border: .5rem solid black;
+	border-radius: 5%;
+	background-color: rgba(255, 255, 255, 0.719);
+	contain: content;
+	object-fit: cover;
+}
+img {
+    margin: auto;
+	object-fit: cover;
+}
+
+.info-section {
+	display: inline-block;
+    width: 50%;
+	height: auto;
+	border: .5rem solid black;
+	background-color: rgba(105, 105, 105, 0.801);
+	margin: auto;
+	contain: content;
+	justify-content: first baseline;
+	border-radius: 5%;
+	align-items: center;
+}
+.text-info-container {
+    width: 80%;
+    height: auto;
+    font-weight: 400;
+    margin: .5rem auto;
+    color: white;
+	contain: content;
+
+	.titulo-producto {
+		font-size: 2rem;
+	}
+	.categoria {
+		font-size: 1rem;
+	}
+	.descripcion {
+		font-size: .85rem;
+		line-height: 3ch;
+		padding: 0 1rem;
+		width: 90%;
+	}
+	.precio {
+		font-size: 1.5rem;
+	}
+}
+
+.detail-buttons {
+	margin: 1rem auto;
+	justify-content: center;
+	width: 70%;
+	height: fit-content;
+	background-color: black;
+	border-radius: 22%;
+}
+
+.info-buttons {
+	width: 70%;
+	height: fit-content;
+	color: whitesmoke;
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.25rem;
+	
+
+	.boton-cantidad {
+		display: flex;
+		margin: 1rem;
+		align-items: center;
+		/* justify-content: flex-end; */
+
+		.number-input {
+			display: flex;
+			width: 5ch;
+		}
+	}
+
+	.container-cart-button {
+		display: flex;
+		margin: 1rem;
+		align-items: center;
+		/* justify-content: flex-end; */
+	}
+	
+	
+	.animated-button {
+		padding: .5rem .75rem;
+		background-color: #0d426b;
+		border: 2px solid #1e1e1e1a;
+		cursor: pointer;
+		border-radius: 5%;
+		color: whitesmoke;
+	}
+	
+	.animated-button .faCartPlus {
+		margin-right: 1rem;
+		transition: all 0.3s ease;
+	}
+	
+	.faCartPlus {
+		color: whitesmoke;
+		padding-left: .25rem;
+		font-size: 1.25rem;
+	}
+	
+	.animated-button:hover .faCartPlus {
+		transform: scale(1.4);
+	}
+	
+
+}
+
+
+
+
+
+/*
+estilos boton cart button
+*/
+
+
+
+.container-cart-button {
+	display: flex;
+	margin: 1rem auto;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.animated-button {
+	padding: .5rem .75rem;
+	background-color: #0d426b;
+	border: 2px solid #1e1e1e1a;
+	cursor: pointer;
+	border-radius: 5%;
+	color: whitesmoke;
+}
+
+.animated-button .faCartPlus {
+	margin-right: 1rem;
+	transition: all 0.3s ease;
+}
+
+.faCartPlus {
+	color: whitesmoke;
+	padding-left: .25rem;
+	font-size: 1.25rem;
+}
+
+.animated-button:hover .faCartPlus {
+	transform: scale(1.4);
+}
+
+
+@media  screen and (width < 850px) {
+	.product-main-container {
+		flex-direction: column;
+
+		.main-header-product {
+			flex-direction: row;
+
+			.titulo {
+				font-size: 1.5rem;
+				font-weight: 600;
+			}
+
+			.section-img {
+				display: block;
+				flex-direction: column;
+				flex-wrap: wrap;
+				width: 100%;
+				margin: auto;
+				align-items: center;
+				justify-content: center;
+			}
+	
+			.info-section {
+				display: block;
+				flex-direction: column;
+				flex-wrap: wrap;
+				width: 80%;
+				margin: 0 auto;
+				justify-content: center;
+				align-items: center;
+			}
+
+			.container-cart-button {
+				display: flex;
+				margin: .5rem auto;
+				align-items: center;
+				font-size: 1rem;
+			}
+		}
+	}
+}
+
+@media  screen and (width < 600px) {
+	.titulo {
+		font-size: .75rem;
+	}		
+	.detail-buttons {
+		width: 80%;
+		margin: auto;
+	}
+
+	.info-buttons {
+		width: 90%;
+		margin: 1rem auto;
+
+		.boton-cantidad {
+			display: flex;
+			margin: .5rem auto;
+			align-items: center;
+			font-size: .75rem;
+
+			
+			.number-input {
+				display: flex;
+				width: 4ch;
+				height: 4ch;
+			}
+			
+		}
+	.container-cart-button {
+		display: flex;
+		margin: .5rem auto;
+		align-items: center;
+		font-size: .75rem;
+	}
+}
+}
+
+		
+		
+	

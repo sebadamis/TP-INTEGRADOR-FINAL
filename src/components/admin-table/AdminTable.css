@@ -1,0 +1,26 @@
+
+
+.admin-table {
+    flex: 1;
+    padding: 1rem;
+    border-collapse: collapse;
+    width: 100%;
+
+    th, td {
+        padding: .5rem;
+        border: 1px solid #333;
+    }
+
+    th {
+        background-color: #333;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #222;
+    }
+    tr:nth-child(odd) {
+        background-color: #1750a1;
+    }
+    
+}

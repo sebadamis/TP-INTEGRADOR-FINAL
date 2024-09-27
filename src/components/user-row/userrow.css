@@ -1,0 +1,76 @@
+.user-table-row {
+    
+    .user-name {
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
+    .email {
+        font-weight: 600;
+        font-size: 1rem;
+    }
+    
+    .password {
+        font-weight: 600;
+        font-size: 1rem;
+    }
+
+    .date-birth {
+        font-size: 0.8rem;
+        color: white;
+    }
+
+    .pais {
+        font-weight: 600;
+        font-size: 1rem;
+    }
+    
+
+    .image {
+        img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+    }
+
+    .comentario {
+        .comentario-container {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+        }
+    }
+
+
+    .actions {
+        .actions-container {
+            display: flex;
+            gap: 0.5rem;
+            .btn {
+                padding: 0.25rem .5rem;
+                border: none;
+                border-radius: 4px;
+                color: white;
+                cursor: pointer;
+                transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+                background-color: royalblue;
+                &:hover {
+                    background-color: #222222;
+                    color: white;
+                }
+                &.btn-danger {
+                    background-color: crimson;
+
+                    &:hover {
+                        background-color: rgb(142, 11, 37);
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}

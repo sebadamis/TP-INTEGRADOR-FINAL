@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;700&family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --color-blue: #3151df;
+  --color-blue-light: #abc3ff;
+  --color-blue-light-dimmed: #e4ecff;
+
+  --color-violet-dark: #4e50c0;
+  --color-violet-light: #9597ff;
+
+  --font-color-light: #f5f5f5;
+  --font-color-dark: #222222;
+
+  --base-color-light: #fafaff;
+  --base-color-light-dimmed: #f6f6ff;
+
+  --hover-element-color: #ffffff40;
+  --spotlight-element-color: #ffffff1f;
+  --active-element-color-dark: #2e2e2e3a;
+
+  --light-50: #ffffff80;
+  --light-70: #ffffffb3;
+
+  --font-be-vi: "Be Vietnam Pro";
+}
+
+body {
+	max-height: 100dvh;
+	max-width: 100dvw;
+	display: flex;
+	flex-direction: column;
+	color: white;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	background-image: url("https://i.ibb.co/n0PnNxm/fondo-pantalla.webp");
+	background-repeat: repeat;
+	
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+.main-container {
+	flex: 1;
+}

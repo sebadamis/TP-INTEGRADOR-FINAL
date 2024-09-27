@@ -1,0 +1,15 @@
+.carousel-container {
+	height: auto;
+	width: 100%;
+	margin: 4rem auto;
+	contain: content;
+		
+	.carousel-item img {
+		object-fit: cover;
+		height: 20rem;
+		width: 100%;
+		aspect-ratio: 1;
+	}
+
+}
+

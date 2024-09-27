@@ -1,0 +1,97 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	max-height: 100dvh;
+	max-width: 100dvw;
+	display: flex;
+	flex-direction: column;
+	color: white;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.titulo-formulario {
+    text-align: center;
+}
+
+.formulario-container {
+    color: white;
+    background-color: #340aa8;
+    padding: 1rem;
+    background-image: url("https://i.ibb.co/pyQSgXZ/fondo-contacto.webp");
+    background-repeat: repeat;
+    margin: auto;
+    justify-content: center;
+    flex-shrink: 2;
+    width: 100%;
+    height: auto;
+    border-radius: 15%;
+    
+    .input-group {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem auto;
+        width: 25rem;
+        height: auto;
+        margin: 1rem auto;
+        width: 70%;
+        height: auto;
+        
+
+        .inpu-label {
+            font-size: 1rem;
+            margin: 1rem;
+            text-align: left;
+        }
+
+        input, textarea, select {
+            padding: 0.5rem;
+            color: #222;
+            outline: none;
+            border: none;
+
+        }
+
+        .input-error {
+            color: red;
+            font-size: .625rem;
+        }
+    
+    }
+
+    .input-group-boton {
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    margin: 1rem auto;
+    justify-content: space-around;
+    width: 60%;
+    height: auto;
+        
+        button {
+                flex-direction: row;
+                flex-wrap: wrap;
+                display: flexbox;
+                margin: 1rem auto;
+                padding: 0.5rem;
+                background-color: #222;
+                border-radius: 15px;
+                color: white;
+                outline: none;
+                border: none;
+                width: 15rem;
+                cursor: pointer;
+        }
+    }
+}
+
+
+
+.formulario-container {
+    width: 70%;
+    height: auto;
+    margin:  2rem auto;
+}

@@ -1,0 +1,39 @@
+.user-container {
+    padding: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    margin: 3rem;
+    width: 100%;
+    
+
+    .form-container {
+        flex: 0 0 360px;
+        background-color: black;
+
+        h1 {
+            color: black;
+            background-color: rgb(54, 250, 201);
+        }
+
+
+        input {
+            color: black;
+        }
+    
+        option {
+            color: black;
+        }
+        
+    }
+
+
+
+
+    @media screen and (width < 900px) {
+        flex-direction: column;
+        
+        .form-container {
+            order: 1;
+        }
+    }
+}

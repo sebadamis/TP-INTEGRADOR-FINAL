@@ -1,0 +1,50 @@
+.service-features {
+	display: flex;
+	width: 100%;
+	height: auto;
+	background-color: #e4e407;
+	background-image: url("https://i.ibb.co/WcwxKgn/animated-fondo.gif");
+	background-repeat: no-repeat;
+	background-size:cover;
+	margin: 0 auto;
+
+	article.features {
+		flex: 1 1 12rem;
+		height: 10rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding: 1rem;
+		align-items: center;
+		
+
+		.features-img {
+			width: 6rem;
+			height: 6rem;
+			object-fit: cover;
+			
+		}
+		.features-description {
+			font-size: 1rem;
+			text-align: center;
+			color: #1c1527;
+			vertical-align: baseline;
+			
+		}
+	}
+}
+
+@media screen and (width < 768px) {
+	.service-features {
+		flex-direction: column;
+		background-image: url("https://i.ibb.co/WcwxKgn/animated-fondo.gif");
+		background-repeat: no-repeat;
+		background-position-x: center;
+		align-items: center;
+		justify-content: center;
+		
+		article.features {
+			flex-basis: 240px;
+		}
+	}
+}
