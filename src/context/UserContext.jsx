@@ -10,7 +10,7 @@ export const UserContext = createContext();
 // eslint-disable-next-line react-refresh/only-export-components
 export const useUser = () => useContext(UserContext);
 
-export const UserProvider = ({Children}) => {
+export const UserProvider = ({children}) => {
 
     const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
     const [token, setToken] = useState(localStorage.getItem("token"));
@@ -65,7 +65,7 @@ export const UserProvider = ({Children}) => {
 
     return (
         <UserContext.Provider value={{ login, user, token, logOut }}>
-                {Children}
+                {children}
         </UserContext.Provider>
     )
 
