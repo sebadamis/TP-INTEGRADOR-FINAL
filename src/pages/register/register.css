@@ -21,8 +21,8 @@ body {
     color: white;
     background-color: #340aa8;
     padding: 1rem;
-    /* background-image: url("https://i.ibb.co/pyQSgXZ/fondo-contacto.webp"); */
-    /* background-repeat: repeat; */
+    background-image: url("https://i.ibb.co/pyQSgXZ/fondo-contacto.webp");
+    background-repeat: repeat;
     margin: auto;
     justify-content: center;
     flex-shrink: 2;
@@ -53,6 +53,11 @@ body {
             outline: none;
             border: none;
 
+        }
+
+        .input-error {
+            color: red;
+            font-size: .625rem;
         }
     
     }

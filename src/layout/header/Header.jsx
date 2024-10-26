@@ -6,10 +6,13 @@ import { useOrder } from "../../context/OrderContext";
 // import OrderDialog from "../../components/order-dialog/OrderDialog";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
+import { useUser } from "../../context/UserContext";
 
 export default function Header() {
   
   const { setToggleModal, count } = useOrder();
+
+  const { user, logOut } = useUser();
   
   return (
     <>
@@ -29,7 +32,7 @@ export default function Header() {
             <nav className="main-nav">
               <ul className="nav-list">
                 <li className="nav-item">
-                  <NavLink to="/" className="nav-link">principal</NavLink>
+                  <NavLink to="/" className="nav-link">Principal</NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink to="/Contact" className="nav-link">Contacto</NavLink>
@@ -38,18 +41,40 @@ export default function Header() {
                   <NavLink to="/Nosotros" className="nav-link">Nosotros</NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="/Login" className="nav-link">Registro</NavLink>
+                  <NavLink to="/Register" className="nav-link">Registro</NavLink>
                 </li>
-                <li className="nav-item">
-                  <NavLink to="/Admin-Product" className="nav-link">AdminProduct</NavLink>
+                { 
+                  user?.role === "admin" && 
+                    <li className="nav-item">
+                      <NavLink to="/Admin-Product" className="nav-link">AdminProduct</NavLink>
+                    </li>
+                }
+
+                {
+                  user?.role === "admin" &&
+                    <li className="nav-item">
+                      <NavLink to="/Admin-User" className="nav-link">AdminUser</NavLink>
+                    </li>
+                }
+
+                { user ? (
+                  <li className="nav-item">
+                  <NavLink onClick={logOut} className="nav-link">Log Out</NavLink>
                 </li>
+              ) : (
+              <li className="nav-item">
+                  <NavLink to="/Login" className="nav-link">Ingresar</NavLink>
+                </li>
+                )}
+
                 <li className="nav-item">
-                <NavLink to="/Admin-User" className="nav-link">AdminUser</NavLink>
+                  <NavLink to="/Login" className="nav-link">Ingresar</NavLink>
                 </li>
               </ul>
             </nav>
           </div>
           <div className="user">
+            {user?.name || "NO USER"}
         {/* Icono del carrito de compras */}
             <div className="order">
               

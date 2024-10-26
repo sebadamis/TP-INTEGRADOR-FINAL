@@ -7,7 +7,9 @@ import Swal from "sweetalert2";
 import "./adminuser.css";
 
 
-const URL = "https://66cd01308ca9aa6c8cc93b20.mockapi.io/api/v1";
+
+
+const URL = import.meta.env.VITE_SERVER_URL;
 
 
 export default function AdminUser() {
@@ -35,14 +37,7 @@ export default function AdminUser() {
 
         }  else {
         reset()
-        // reset({
-      //   name: selectedProduct.name,
-      //   price: selectedProduct.price,
-      //   description: selectedProduct.description,
-      //   image: selectedProduct.image,
-      //   category: selectedProduct.category,
-      //   createdAt: selectedProduct.createdAt
-      // })
+        
         }
 
     }, [ selectedUser, setValue, reset ])
@@ -54,17 +49,15 @@ export default function AdminUser() {
         // Carga de productos
         const response = await axios.get(`${URL}/users`);
 
-        // console.log(response.data);
 
         setUsers(response.data)
 
         } catch (error) {
         console.log(error);
 
-        } // end catch block
+        } 
 
-    } //end getProducts function
-    
+    } 
 
     function deleteUsers(id) {
 
@@ -101,7 +94,7 @@ export default function AdminUser() {
         try {
 
         if(selectedUser) {
-            // HAcer un put
+            
             const { id } = selectedUser;
             const response = await axios.put(`${URL}/users/${id}`, user);
             console.log(response.data)
@@ -116,10 +109,14 @@ export default function AdminUser() {
             
 
         } else {
-            // si no tengo estado selectedProduct (null) significa que estoy creando un producto
+            
             const response = await axios.post(`${URL}/users`, user)
             console.log(response.data);
-            
+            Swal.fire({
+                title:"Creaste un Usuario nuevo",
+                text: "Se creó un Usuario Nuevo",
+                icon: "success"
+                })
 
         }
 

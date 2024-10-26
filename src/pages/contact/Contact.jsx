@@ -1,5 +1,5 @@
 import './Contact.css';
-// import '../../styles/form.css'
+
 
 export default function Contact() {
   return (

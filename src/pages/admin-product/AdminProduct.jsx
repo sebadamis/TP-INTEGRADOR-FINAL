@@ -6,7 +6,7 @@ import "../../styles/form.css";
 import Swal from "sweetalert2";
 import "./AdminProduct.css";
 
-const URL = "https://66cd01308ca9aa6c8cc93b20.mockapi.io/api/v1";
+const URL = import.meta.env.VITE_SERVER_URL;
 
 
 export default function AdminProduct() {
@@ -44,9 +44,9 @@ export default function AdminProduct() {
         // Carga de productos
         const response = await axios.get(`${URL}/products`);
 
-        console.log(response.data);
+        // console.log(response.data);
 
-        setProducts(response.data)
+        setProducts(response.data);
 
       } catch (error) {
         console.log(error);
@@ -85,7 +85,7 @@ export default function AdminProduct() {
     }
 
     async function onProductSubmit(producto) {
-      console.log(producto)
+      // console.log(producto)
       try {
 
         if(selectedProduct) {
@@ -106,6 +106,11 @@ export default function AdminProduct() {
           // si no tengo estado selectedProduct (null) significa que estoy creando un producto
           const response = await axios.post(`${URL}/products`, producto)
           console.log(response.data);
+          Swal.fire({
+            title:"Creaste un Producto Nuevo",
+            text: "El usuario ha creado un nuevo producto",
+            icon: "success"
+            })
           
 
         }

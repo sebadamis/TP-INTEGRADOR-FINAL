@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const URL = "https://66cd01308ca9aa6c8cc93b20.mockapi.io/api/v1";
+const URL = import.meta.env.VITE_SERVER_URL;
 
 export default function ProductDetail() {
 
