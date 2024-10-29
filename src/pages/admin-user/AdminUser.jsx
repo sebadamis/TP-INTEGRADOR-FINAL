@@ -5,11 +5,16 @@ import UserTable from "../../components/user-table/UserTable";
 import "../../styles/form.css";
 import Swal from "sweetalert2";
 import "./adminuser.css";
+import { useUser } from "../../context/UserContext";
 
 
 
 
-const URL = import.meta.env.VITE_SERVER_URL;
+// const URL = import.meta.env.VITE_SERVER_URL;
+
+const URL = import.meta.env.VITE_LOCAL_SERVER;
+
+
 
 
 export default function AdminUser() {
@@ -23,7 +28,11 @@ export default function AdminUser() {
         getUsers();
     }, [])
 
+    const { token, logout } = useUser();
+
     useEffect(() => {
+
+        
 
         if(selectedUser) {
 
@@ -47,12 +56,27 @@ export default function AdminUser() {
 
         try {
         // Carga de productos
-        const response = await axios.get(`${URL}/users`);
+            
+
+        const response = await axios.get(`${URL}/users`, {
+            headers: {
+                Authorization: token
+            }
+        });
 
 
         setUsers(response.data)
 
         } catch (error) {
+            if(error.response.status === 401){
+                Swal.fire({
+                    title: "su sesión ha caducado",
+                    icon: error,
+                    text: "debe volver a loguear su usuario"
+                });
+                logout();
+                return;
+            }
         console.log(error);
 
         } 
@@ -70,7 +94,12 @@ export default function AdminUser() {
         }).then(async(result) => {
             try {
             if(result.isConfirmed) {
-                const response = await axios.delete(`${URL}/users/${id}`);
+                const response = await axios.delete(`${URL}/users/${id}`,
+                    {
+                        headers: {
+                            Authorization: token
+                        }
+                    });
 
                 console.log(response.data);
         
@@ -96,7 +125,13 @@ export default function AdminUser() {
         if(selectedUser) {
             
             const { id } = selectedUser;
-            const response = await axios.put(`${URL}/users/${id}`, user);
+            const response = await axios.put(`${URL}/users/${id}`, user,
+                {
+                    headers: {
+                        Authorization: token
+                    }
+                });
+            
             console.log(response.data)
             Swal.fire({
             title:"Actualización correcta",
@@ -110,7 +145,13 @@ export default function AdminUser() {
 
         } else {
             
-            const response = await axios.post(`${URL}/users`, user)
+            const response = await axios.post(`${URL}/users`, user, 
+                {
+                    headers: {
+                        Authorization: token
+                    }
+                });
+            
             console.log(response.data);
             Swal.fire({
                 title:"Creaste un Usuario nuevo",

@@ -67,9 +67,7 @@ export default function Header() {
                 </li>
                 )}
 
-                <li className="nav-item">
-                  <NavLink to="/Login" className="nav-link">Ingresar</NavLink>
-                </li>
+                
               </ul>
             </nav>
           </div>
