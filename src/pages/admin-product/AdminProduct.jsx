@@ -5,8 +5,11 @@ import AdminTable from "../../components/admin-table/AdminTable";
 import "../../styles/form.css";
 import Swal from "sweetalert2";
 import "./AdminProduct.css";
+import { useUser } from "../../context/UserContext";
 
-const URL = import.meta.env.VITE_SERVER_URL;
+// const URL = import.meta.env.VITE_SERVER_URL;
+
+const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 
 export default function AdminProduct() {
@@ -19,6 +22,8 @@ export default function AdminProduct() {
     useEffect(() => {
       getProducts();
     }, [])
+
+    const { token } = useUser();
 
     useEffect(() => {
 
@@ -42,11 +47,16 @@ export default function AdminProduct() {
 
       try {
         // Carga de productos
-        const response = await axios.get(`${URL}/products`);
+        const response = await axios.get(`${URL}/products`,
+          {
+          headers: {
+              Authorization: token
+          }
+      });
 
         // console.log(response.data);
 
-        setProducts(response.data);
+        setProducts(response.data.products);
 
       } catch (error) {
         console.log(error);
@@ -55,7 +65,7 @@ export default function AdminProduct() {
 
     } 
 
-    function deleteProduct(identificador) {
+    function deleteProduct(_id) {
 
         Swal.fire({
           title: "Borrar producto?",
@@ -66,7 +76,12 @@ export default function AdminProduct() {
         }).then(async(result) => {
           try {
             if(result.isConfirmed) {
-              const response = await axios.delete(`${URL}/products/${identificador}`);
+              const response = await axios.delete(`${URL}/products/${_id}`,
+                {
+                headers: {
+                    Authorization: token
+                }
+            });
 
               console.log(response.data);
         
@@ -89,8 +104,13 @@ export default function AdminProduct() {
       try {
 
         if(selectedProduct) {
-          const { id } = selectedProduct;
-          const response = await axios.put(`${URL}/products/${id}`, producto);
+          const { _id } = selectedProduct;
+          const response = await axios.put(`${URL}/products/${_id}`, producto,
+            {
+            headers: {
+                Authorization: token
+            }
+        });
           console.log(response.data)
           Swal.fire({
             title:"Actualización correcta",
@@ -104,7 +124,12 @@ export default function AdminProduct() {
 
         } else {
           // si no tengo estado selectedProduct (null) significa que estoy creando un producto
-          const response = await axios.post(`${URL}/products`, producto)
+          const response = await axios.post(`${URL}/products`, producto,
+            {
+            headers: {
+                Authorization: token
+            }
+        });
           console.log(response.data);
           Swal.fire({
             title:"Creaste un Producto Nuevo",

@@ -24,7 +24,7 @@ export default function CardProduct({prod}) {
                             <h2 className="price">${prod.price}</h2>
                             <div className="buy-container">
 
-                                <NavLink to={`/product-detail/${prod.id}`} className="buy ver"><button className="animated-button"><FontAwesomeIcon icon={faCircleInfo} className="fa-info-circle"/>Info</button></NavLink>
+                                <NavLink to={`/product-detail/${prod._id}`} className="buy ver"><button className="animated-button"><FontAwesomeIcon icon={faCircleInfo} className="fa-info-circle"/>Info</button></NavLink>
 
                                 <NavLink to="#" className="buy cash"><button className="animated-button" onClick={() => addProduct(prod)}><FontAwesomeIcon icon={faDollarSign} className="faDollarSign"/>Comprar</button></NavLink>
                             </div>

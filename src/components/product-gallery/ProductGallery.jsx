@@ -2,13 +2,18 @@ import { useEffect, useState } from 'react';
 import CardProduct from '../card-product/CardProduct';
 import './productgallery.css';
 import axios from 'axios';
+import { useUser } from '../../context/UserContext';
 
 
 
-const URL = import.meta.env.VITE_SERVER_URL;
+// const URL = import.meta.env.VITE_SERVER_URL;
+
+const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 export default function ProductGallery({ category }) {
     const [ products, setProducts ] = useState([]);
+
+    const { token } = useUser();
 
     useEffect(()=> {
         // Ejecutar la función getProducts al montar el componente 1 vez
@@ -19,12 +24,17 @@ export default function ProductGallery({ category }) {
         // Obtener los productos desde mockapi y actualizar el estado
         try {
             
-            const response = await axios.get(`${URL}/products`)
+            const response = await axios.get(`${URL}/products`,
+                {
+                headers: {
+                    Authorization: token
+                }
+            });
 
             // const filteredProducts = response.data.filter(prod => prod.category === category);
             // setProducts(filteredProducts)
 
-            setProducts(response.data)
+            setProducts(response.data.products)
 
         } catch (error) {
             alert("Error al obtener productos");
@@ -45,7 +55,7 @@ export default function ProductGallery({ category }) {
         <div className="product-gallery__container">
                 
             {
-                products.map(producto => <CardProduct key={producto.id} prod={producto} />)
+                products.map(producto => <CardProduct key={producto._id} prod={producto} />)
             }
                 
         </div>
