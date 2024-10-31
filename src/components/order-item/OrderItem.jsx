@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useOrder } from "../../context/OrderContext";
 import "./orderitem.css"
 
+const URL = import.meta.env.VITE_LOCAL_SERVER;
+
 export default function OrderItem({ item }) {
 
     const {removeProduct, changeItemQuantity} = useOrder();
@@ -10,7 +12,7 @@ export default function OrderItem({ item }) {
     return (
         <li className="order-item">
             <div className="item-image">
-                <img src={item.image} alt={item.name} />
+                <img src={`${URL}/images/products/${item.image}`} alt={item.name} />
             </div>
             <div className="item-info">
                 {item.name}
@@ -28,7 +30,7 @@ export default function OrderItem({ item }) {
                 {item.quantity}
             </div>
             <div className="item-actions">
-                <button className='btn-icon' onClick={()=> removeProduct(item.id)}><FontAwesomeIcon icon={faTrash} /></button>
+                <button className='btn-icon' onClick={()=> removeProduct(item._id)}><FontAwesomeIcon icon={faTrash} /></button>
             </div>
         </li>
     )

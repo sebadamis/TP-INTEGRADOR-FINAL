@@ -22,7 +22,7 @@ export default function OrderProvider({ children }) {
 
     function addProduct(product) {
 
-        const productExists = order.find(prod => prod.id === product.id);
+        const productExists = order.find(prod => prod._id === product._id);
         
 
         if(productExists) {
@@ -62,14 +62,14 @@ export default function OrderProvider({ children }) {
         setTotal(total)
     }
 
-    function removeProduct(id){
+    function removeProduct(_id){
         
         // const indice = order.findIndex(prod => prod.id === id);
         // const orderCopy = [...order];
         // orderCopy.splice(indice, 1);
         // setOrder(orderCopy);
 
-        const orderFiltered = order.filter(prod => prod.id !== id);
+        const orderFiltered = order.filter(prod => prod._id !== _id);
         
 
         setOrder(orderFiltered);
@@ -77,7 +77,7 @@ export default function OrderProvider({ children }) {
 
     function changeItemQuantity(product, value) {
         
-        const producto = order.find((prod) => prod.id === product.id);
+        const producto = order.find((prod) => prod._id === product._id);
         if(!producto){
             product.quantity = value;
             return setOrder([...order, product])

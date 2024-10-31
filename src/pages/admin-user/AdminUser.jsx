@@ -8,10 +8,7 @@ import "./adminuser.css";
 import { useUser } from "../../context/UserContext";
 
 
-
 const URL = import.meta.env.VITE_LOCAL_SERVER;
-
-
 
 
 export default function AdminUser() {
@@ -61,7 +58,7 @@ export default function AdminUser() {
             }
         });
 
-
+        console.log(response.data);
         setUsers(response.data)
 
         } catch (error) {

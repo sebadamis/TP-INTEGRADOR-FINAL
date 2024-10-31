@@ -6,8 +6,6 @@ import { useUser } from '../../context/UserContext';
 
 
 
-// const URL = import.meta.env.VITE_SERVER_URL;
-
 const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 export default function ProductGallery({ category }) {

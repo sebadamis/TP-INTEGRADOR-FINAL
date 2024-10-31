@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 import "./AdminProduct.css";
 import { useUser } from "../../context/UserContext";
 
-// const URL = import.meta.env.VITE_SERVER_URL;
 
 const URL = import.meta.env.VITE_LOCAL_SERVER;
 
@@ -101,7 +100,7 @@ export default function AdminProduct() {
                 }
             });
 
-              console.log(response.data);
+              console.log(response.data.products);
         
               getProducts();
             }

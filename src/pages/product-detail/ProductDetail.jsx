@@ -11,7 +11,6 @@ const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 export default function ProductDetail() {
 
-
     const { addProduct, changeItemQuantity, order } = useOrder();
 
     const [ products, setProducts ] = useState([]);
@@ -23,16 +22,18 @@ export default function ProductDetail() {
     }, []);
 
     async function getProducts() {
+
+        
         try {
             
             const response = await axios.get(`${URL}/products/${_id}`);
             
-            const temp = order.find(p => p.id === _id);
+            const temp = order.find(p => p._id === _id);
 
-            response.data.products.quantity = temp?.quantity ?? 1;
+            response.data.quantity = temp?.quantity ?? 1;
             console.log(response.data);
     
-            setProducts(response.data.products)
+            setProducts(response.data.products);
     
             } catch (error) {
                 console.log(error);

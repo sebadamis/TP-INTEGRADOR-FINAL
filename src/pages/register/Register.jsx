@@ -3,7 +3,9 @@ import "./register.css"
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const URL = import.meta.env.VITE_SERVER_URL;
+const URL = import.meta.env.VITE_LOCAL_SERVER;
+
+
 
 
 
@@ -93,14 +95,14 @@ export default function Register() {
             </div>
             { errors.password && <div className="input-error">Es obligatorio que ingrese su Contraseña</div> }
             
-            <div className="input-group">
+            {/* <div className="input-group">
               <label htmlFor="#fecha-nacimiento">Fecha de Nacimiento: </label>
               <input type="date" id="fecha-nacimiento"
                 {...register("datebirth",{
                   required: true
                 })}/>
                 { errors.datebirth && <div className="input-error">Es obligatorio que ingrese su fecha de nacimiento</div> }
-            </div>
+            </div> */}
 
             <div className="input-group">
               <label htmlFor="#pais">País: </label>
@@ -121,7 +123,7 @@ export default function Register() {
 
             <div className="input-group">
               <label htmlFor="">Avatar (ingrese una link de imagen)</label>
-              <input type="url" {...register("image", { required: true }) } />
+              <input type="file" {...register("image", { required: true }) } />
             </div>
             { errors.image && <div className="input-error">Debe subir una Imagen</div> }
 
