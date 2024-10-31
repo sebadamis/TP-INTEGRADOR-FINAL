@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
-const URL = import.meta.env.VITE_SERVER_URL;
+const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 export default function ProductDetail() {
 
@@ -16,7 +16,7 @@ export default function ProductDetail() {
 
     const [ products, setProducts ] = useState([]);
 
-    const { id } = useParams();
+    const { _id } = useParams();
 
     useEffect(() => {
         getProducts();
@@ -25,14 +25,14 @@ export default function ProductDetail() {
     async function getProducts() {
         try {
             
-            const response = await axios.get(`${URL}/products/${id}`);
+            const response = await axios.get(`${URL}/products/${_id}`);
             
-            const temp = order.find(p => p.id === id);
+            const temp = order.find(p => p.id === _id);
 
-            response.data.quantity = temp?.quantity ?? 1;
+            response.data.products.quantity = temp?.quantity ?? 1;
             console.log(response.data);
     
-            setProducts(response.data)
+            setProducts(response.data.products)
     
             } catch (error) {
                 console.log(error);
@@ -51,7 +51,7 @@ export default function ProductDetail() {
                         <section className="section-img">
                             <div className="img-container">
                                 <img
-                                src={products.image}
+                                src={`${URL}/images/products/${products.image}`}
                                 alt={products.name}
                                 />
                             </div>

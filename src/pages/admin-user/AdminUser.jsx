@@ -9,9 +9,6 @@ import { useUser } from "../../context/UserContext";
 
 
 
-
-// const URL = import.meta.env.VITE_SERVER_URL;
-
 const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 
@@ -83,7 +80,7 @@ export default function AdminUser() {
 
     } 
 
-    function deleteUsers(id) {
+    function deleteUsers(_id) {
 
         Swal.fire({
             title: "Borrar Usuario?",
@@ -93,8 +90,9 @@ export default function AdminUser() {
             showCancelButton: true,
         }).then(async(result) => {
             try {
+                
             if(result.isConfirmed) {
-                const response = await axios.delete(`${URL}/users/${id}`,
+                const response = await axios.delete(`${URL}/users/${_id}`,
                     {
                         headers: {
                             Authorization: token
@@ -124,8 +122,8 @@ export default function AdminUser() {
 
         if(selectedUser) {
             
-            const { id } = selectedUser;
-            const response = await axios.put(`${URL}/users/${id}`, user,
+            const { _id } = selectedUser;
+            const response = await axios.put(`${URL}/users/${_id}`, user,
                 {
                     headers: {
                         Authorization: token
@@ -246,7 +244,7 @@ export default function AdminUser() {
 
                         <div className="input-group">
                             <label htmlFor="">Avatar (ingrese un link de imagen)</label>
-                            <input type="url" {...register("image", { required: true }) } />
+                            <input type="file" {...register("image", { required: true }) } />
                         </div>
 
                         <button className={`btn ${selectedUser && 'btn-success'}`}       

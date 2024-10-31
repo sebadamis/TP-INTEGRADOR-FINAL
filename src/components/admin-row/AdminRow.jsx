@@ -1,10 +1,13 @@
+import { formatDate } from '../../utils/formatDate';
 import './AdminRow.css';
+
+const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 export default function AdminRow({ producto, deleteProduct, handleEditProduct }) {
   return (
     <tr className="admin-table-row">
       <td className="image">
-        <img src={producto.image} alt={producto.name} />
+        <img src={`${URL}/images/products/${producto.image}`} alt={producto.name} />
       </td>
       <td className="name">
         {producto.name}
@@ -23,14 +26,14 @@ export default function AdminRow({ producto, deleteProduct, handleEditProduct })
         {producto.category}
       </td>
       <td className="date">
-        {producto.createdAt}
+        {formatDate(producto.createdAt)}
       </td>
       <td className="actions">
         <div className="actions-container">
           <button className="btn" onClick={  () => handleEditProduct(producto)   }>
             Editar
           </button>
-          <button className="btn btn-danger" onClick={  () => deleteProduct(producto.id)  }>Borrar</button> 
+          <button className="btn btn-danger" onClick={  () => deleteProduct(producto._id)  }>Borrar</button> 
         </div>
       </td>
 

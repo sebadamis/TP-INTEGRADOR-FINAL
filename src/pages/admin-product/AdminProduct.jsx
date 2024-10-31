@@ -16,11 +16,13 @@ export default function AdminProduct() {
     const [ products, setProducts ] = useState([]);
     // Estado para manejar la edición de productos
     const [ selectedProduct, setSelectedProduct ] = useState(null)
+    const [categories, setCategories] = useState([]);
 
     const { register, setValue, reset, handleSubmit, formState: { errors, isValid } } = useForm();
 
     useEffect(() => {
       getProducts();
+      getCategories();
     }, [])
 
     const { token } = useUser();
@@ -41,6 +43,22 @@ export default function AdminProduct() {
       }
 
     }, [ selectedProduct, setValue, reset ])
+
+    async function getCategories(){
+
+      try {
+        
+        const response = await axios.get(`${URL}/categories`);
+
+        // console.log(response.data);
+
+        setCategories(response.data.categories);
+
+      } catch (error) {
+        console.log(error);
+        alert("Error al obtener Categorias")
+      }
+    }
 
 
     async function getProducts() {
@@ -101,11 +119,22 @@ export default function AdminProduct() {
 
     async function onProductSubmit(producto) {
       // console.log(producto)
+
       try {
+
+        const formData = new FormData();
+        
+        formData.append("name", producto.name);
+        formData.append("price", producto.price);
+        formData.append("description", producto.description);
+        formData.append("category", producto.category);
+        if(producto.image[0]){
+          formData.append("image", producto.image[0]);
+        }
 
         if(selectedProduct) {
           const { _id } = selectedProduct;
-          const response = await axios.put(`${URL}/products/${_id}`, producto,
+          const response = await axios.put(`${URL}/products/${_id}`, formData,
             {
             headers: {
                 Authorization: token
@@ -124,19 +153,21 @@ export default function AdminProduct() {
 
         } else {
           // si no tengo estado selectedProduct (null) significa que estoy creando un producto
-          const response = await axios.post(`${URL}/products`, producto,
+          const response = await axios.post(`${URL}/products`, formData,
             {
             headers: {
                 Authorization: token
             }
         });
-          console.log(response.data);
+
+
+          console.log(response.data.products);
           Swal.fire({
             title:"Creaste un Producto Nuevo",
             text: "El usuario ha creado un nuevo producto",
             icon: "success"
             })
-          
+            
 
         }
 
@@ -198,11 +229,12 @@ export default function AdminProduct() {
                 <div className="input-group">
                   <label htmlFor="">Categoría</label>
                   <select {...register("category")}>\
-                    <option value="Partes de PC">Partes de PC</option>
-                    <option value="Periféricos">Periféricos</option>
-                    <option value="Notebook">Notebook</option>
-                    <option value="PC Escritorio">PC Escritorio</option>
-                    <option value="Accesorios">Accesorios</option>
+                  {
+                    categories.map(cat => (
+                      <option key={cat._id} value={cat.name}>{cat.viewValue}</option>
+                    ))
+                  }
+
 
                   </select>
                 </div>
@@ -214,7 +246,7 @@ export default function AdminProduct() {
 
                   <div className="input-group">
                     <label htmlFor="">Imagen</label>
-                    <input type="url" {...register("image") } />
+                    <input accept="image/*" type="file" {...register("image") } />
                   </div>
 
                 <button className={`btn ${selectedProduct && 'btn-success'}`}       
@@ -232,7 +264,8 @@ export default function AdminProduct() {
             {/* Contenedor de la tabla de productos */}
             <div className="table-container">
 
-              <AdminTable products={products} 
+              <AdminTable products={products}
+                          key={products._id} 
                           deleteProduct={deleteProduct}
                           handleEditProduct={handleEditProduct}
                           />

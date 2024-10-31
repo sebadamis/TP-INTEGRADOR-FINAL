@@ -4,6 +4,8 @@ import "./cardproduct.css";
 import { NavLink } from "react-router-dom";
 import { useOrder } from "../../context/OrderContext";
 
+const URL = import.meta.env.VITE_LOCAL_SERVER;
+
 export default function CardProduct({prod}) {
     
     const { addProduct } = useOrder();
@@ -16,7 +18,7 @@ export default function CardProduct({prod}) {
                         <div className="imgBox">
                             <img
                                 className="img"
-                                src={prod.image}
+                                src={`${URL}/images/products/${prod.image}`}
                                 alt={prod.name}/>
                         </div>
                         <div className="contentBox">

@@ -33,7 +33,7 @@ export default function AdminTable({ products, deleteProduct, handleEditProduct 
         {
           products.map(prod => {
 
-            return <AdminRow  key={prod.id} 
+            return <AdminRow  key={prod._id} 
                               producto={prod} 
                               deleteProduct={deleteProduct}
                               handleEditProduct={handleEditProduct}

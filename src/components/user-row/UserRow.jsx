@@ -45,7 +45,7 @@ export default function UserRow({ users, deleteUser, handleEditUser }) {
                     Editar
                 </button>
 
-                <button className="btn btn-danger" onClick={  () => deleteUser(users.id)  }>Borrar</button> 
+                <button className="btn btn-danger" onClick={  () => deleteUser(users._id)  }>Borrar</button> 
                 </div>
             </td>
 
