@@ -10,10 +10,6 @@ export default function Login() {
 
     const { login } = useUser();
 
-    //function handleLogin(data) {
-    //     login(data);
-    // }
-
 
     return (
         <>

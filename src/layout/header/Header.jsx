@@ -41,7 +41,7 @@ export default function Header() {
                   <NavLink to="/Nosotros" className="nav-link">Nosotros</NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="/Register" className="nav-link">Registro</NavLink>
+                  <NavLink to="/Registro" className="nav-link">Registro</NavLink>
                 </li>
                 { 
                   user?.role === "admin" && 

@@ -1,9 +1,16 @@
 import "./userrow.css"
+import { formatDate } from '../../utils/formatDate';
+
+const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 export default function UserRow({ users, deleteUser, handleEditUser }) {
     return (
         
         <tr className="user-table-row">
+
+            <td className="image">
+                <img src={`${URL}/images/users/${users.image}`} alt={users.name} />
+            </td>
 
             <td className="user-name">
                 {users.name}
@@ -13,22 +20,18 @@ export default function UserRow({ users, deleteUser, handleEditUser }) {
                 {users.email}
             </td>
 
-            <td className="password">
+            {/* <td className="password">
                 {users.password}
-            </td>
+            </td> */}
 
             <td className="datebirth">
-                {users.datebirh}
+                {formatDate(users.datebirh)}
             </td>
 
             <td className="pais">
                 {users.pais}
             </td>
 
-
-            <td className="image">
-                <img src={users.image} alt={users.name} />
-            </td>
             
             <td className="comentario">
 

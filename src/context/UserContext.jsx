@@ -7,7 +7,7 @@ const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 export const UserContext = createContext();
 
-// eslint-disable-next-line react-refresh/only-export-components
+
 export const useUser = () => useContext(UserContext);
 
 export const UserProvider = ({children}) => {

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+
 const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 export default function ProductDetail() {
@@ -21,6 +22,7 @@ export default function ProductDetail() {
         getProducts();
     }, []);
 
+
     async function getProducts() {
 
         
@@ -30,8 +32,8 @@ export default function ProductDetail() {
             
             const temp = order.find(p => p._id === _id);
 
-            response.data.quantity = temp?.quantity ?? 1;
-            console.log(response.data);
+            response.data.products.quantity = temp?.quantity ?? 1;
+            console.log(response.data.products);
     
             setProducts(response.data.products);
     

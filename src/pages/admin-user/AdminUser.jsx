@@ -116,11 +116,25 @@ export default function AdminUser() {
     async function onUserSubmit(user) {
         console.log(user)
         try {
+        
+        const formData = new FormData();
+        
+        formData.append("name", user.name);
+        formData.append("email", user.email);
+        formData.append("password", user.password);
+        formData.append("datebirth", user.datebirth);
+        formData.append("pais", user.pais);
+        formData.append("role", user.role);
+        formData.append("createdAt", user.createdAt);
+        formData.append("comment", user.comment);
+        if(user.image[0]){
+            formData.append("image", user.image[0]);
+        }
 
         if(selectedUser) {
             
             const { _id } = selectedUser;
-            const response = await axios.put(`${URL}/users/${_id}`, user,
+            const response = await axios.put(`${URL}/users/${_id}`, formData,
                 {
                     headers: {
                         Authorization: token
@@ -140,7 +154,7 @@ export default function AdminUser() {
 
         } else {
             
-            const response = await axios.post(`${URL}/users`, user, 
+            const response = await axios.post(`${URL}/users`, formData, 
                 {
                     headers: {
                         Authorization: token
@@ -259,7 +273,8 @@ export default function AdminUser() {
                 {/* Contenedor de la tabla de productos */}
                 <div className="table-container">
 
-                    <UserTable users={users} 
+                    <UserTable  key={users._id}
+                                users={users} 
                                 deleteUser={deleteUsers}
                                 handleEditUser={handleEditUser}
                                 />

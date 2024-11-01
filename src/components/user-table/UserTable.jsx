@@ -8,30 +8,31 @@ export default function UserTable({ users, deleteUser, handleEditUser }) {
 
             <thead>
                 <tr>
-                <th>
-                    Nombre Usuario
-                </th>
-                <th>
-                    E-mail
-                </th>
-                <th>
-                    Contraseña
-                </th>
-                <th>
-                    Fecha  de Nacimiento
-                </th>
-                <th>
-                    País
-                </th>
-                <th>
-                    Imagen
-                </th>
-                <th>
-                    Comentario
-                </th>
-                <th>
-                    Acciones
-                </th>
+                    <th>
+                        Imagen
+                    </th>
+                    <th>
+                        Nombre Usuario
+                    </th>
+                    <th>
+                        E-mail
+                    </th>
+                    {/* <th>
+                        Contraseña
+                    </th> */}
+                    <th>
+                        Fecha  de Nacimiento
+                    </th>
+                    <th>
+                        País
+                    </th>
+
+                    <th>
+                        Comentario
+                    </th>
+                    <th>
+                        Acciones
+                    </th>
                 </tr>
             </thead>
             <tbody>

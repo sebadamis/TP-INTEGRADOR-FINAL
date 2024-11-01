@@ -7,9 +7,6 @@ const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 
 
-
-
-
 export default function Register() {
 
   const  {register, handleSubmit, reset , formState: {errors , isValid} } = useForm();
@@ -39,7 +36,7 @@ export default function Register() {
 
 
   return (
-
+  <>
     <main className="main-container">
       <section className="register-section">
         <div className="titulo-sub-container">
@@ -122,7 +119,7 @@ export default function Register() {
 
 
             <div className="input-group">
-              <label htmlFor="">Avatar (ingrese una link de imagen)</label>
+              <label htmlFor="">Avatar (Subir una imagen)</label>
               <input type="file" {...register("image", { required: true }) } />
             </div>
             { errors.image && <div className="input-error">Debe subir una Imagen</div> }
@@ -151,6 +148,7 @@ export default function Register() {
         </div>
       </section>
     </main>
+  </>
 
   )
 }
