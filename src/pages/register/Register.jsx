@@ -92,14 +92,14 @@ export default function Register() {
             </div>
             { errors.password && <div className="input-error">Es obligatorio que ingrese su Contraseña</div> }
             
-            {/* <div className="input-group">
+            <div className="input-group">
               <label htmlFor="#fecha-nacimiento">Fecha de Nacimiento: </label>
               <input type="date" id="fecha-nacimiento"
                 {...register("datebirth",{
                   required: true
                 })}/>
                 { errors.datebirth && <div className="input-error">Es obligatorio que ingrese su fecha de nacimiento</div> }
-            </div> */}
+            </div>
 
             <div className="input-group">
               <label htmlFor="#pais">País: </label>

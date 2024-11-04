@@ -6,6 +6,7 @@ import { useOrder } from "../../context/OrderContext";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useUser } from "../../context/UserContext";
 
 
 const URL = import.meta.env.VITE_LOCAL_SERVER;
@@ -18,6 +19,8 @@ export default function ProductDetail() {
 
     const { _id } = useParams();
 
+    const { token } = useUser();
+
     useEffect(() => {
         getProducts();
     }, []);
@@ -28,7 +31,12 @@ export default function ProductDetail() {
         
         try {
             
-            const response = await axios.get(`${URL}/products/${_id}`);
+            const response = await axios.get(`${URL}/products/${_id}`,
+                {
+                headers: {
+                    Authorization: token
+                }
+            });
             
             const temp = order.find(p => p._id === _id);
 
@@ -66,7 +74,7 @@ export default function ProductDetail() {
                                     {products.name}
                                 </p>
                                 <p className="categoria">
-                                    Categoría: {products.category}
+                                    Categoría: {products.categories}
                                 </p>
                                 <p className="descripcion">
                                     Descripción: {products.description}

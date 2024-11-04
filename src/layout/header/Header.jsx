@@ -3,10 +3,11 @@ import './Header.css';
 import "../../index.css";
 import userImg from '../../assets/img/default-user.png';
 import { useOrder } from "../../context/OrderContext";
-// import OrderDialog from "../../components/order-dialog/OrderDialog";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useUser } from "../../context/UserContext";
+
+const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 export default function Header() {
   
@@ -81,7 +82,7 @@ export default function Header() {
                 <FontAwesomeIcon  icon={faCartShopping} onClick={() => setToggleModal(estado => !estado) } />
               </div>
             <div className="avatar">
-              <img src={userImg} alt="avatar-user" />
+            { user?.image && <img src={`${URL}/images/users/${user.image}`} alt="user-img" /> || <img src={userImg} alt="avatar-user" />}
             </div>
           </div>
       </header>

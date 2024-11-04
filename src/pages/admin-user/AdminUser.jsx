@@ -33,14 +33,14 @@ export default function AdminUser() {
             setValue("name", selectedUser.name),
             setValue("email", selectedUser.email),
             setValue("password",  selectedUser.password),
-            setValue("datebirth", selectedUser.datebirth),
+            // setValue("datebirth", selectedUser.datebirth),
             setValue("pais", selectedUser.pais),
             setValue("image", selectedUser.image),
-            setValue("comment", selectedUser.comment)
+            setValue("comment", selectedUser.comment),
+            setValue("role", selectedUser.role)
 
         }  else {
         reset()
-        
         }
 
     }, [ selectedUser, setValue, reset ])
@@ -59,7 +59,7 @@ export default function AdminUser() {
         });
 
         console.log(response.data);
-        setUsers(response.data)
+        setUsers(response.data.users)
 
         } catch (error) {
             if(error.response.status === 401){
@@ -113,22 +113,22 @@ export default function AdminUser() {
 
     }
 
-    async function onUserSubmit(user) {
-        console.log(user)
+    async function onUserSubmit(users) {
+        console.log(users)
         try {
         
         const formData = new FormData();
         
-        formData.append("name", user.name);
-        formData.append("email", user.email);
-        formData.append("password", user.password);
-        formData.append("datebirth", user.datebirth);
-        formData.append("pais", user.pais);
-        formData.append("role", user.role);
-        formData.append("createdAt", user.createdAt);
-        formData.append("comment", user.comment);
-        if(user.image[0]){
-            formData.append("image", user.image[0]);
+        formData.append("name", users.name);
+        formData.append("email", users.email);
+        formData.append("password", users.password);
+        formData.append("datebirth", users.datebirth);
+        formData.append("pais", users.pais);
+        formData.append("role", users.role);
+        formData.append("createdAt", users.createdAt);
+        formData.append("comment", users.comment);
+        if(users.image[0]){
+            formData.append("image", users.image[0]);
         }
 
         if(selectedUser) {
@@ -226,12 +226,12 @@ export default function AdminUser() {
                             { errors.password && <div className="input-error">El campo CONTRASEÑA es obligatorio</div> }
                         </div>
 
-                        <div className="input-group">
+                        {/* <div className="input-group">
                             <label htmlFor="datebirth">Fecha de Nacimiento</label>
                             <input type="date" {...register("datebirth", { required: true })}  />
 
                             { errors.datebirth && <div className="input-error">Es obligatorio que ingrese su fecha de nacimiento</div> }
-                        </div>
+                        </div> */}
 
                         <div className="input-group">
 

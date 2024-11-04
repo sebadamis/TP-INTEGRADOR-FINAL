@@ -35,7 +35,7 @@ export default function ProductGallery({ category }) {
             setProducts(response.data.products)
 
         } catch (error) {
-            alert("Error al obtener productos");
+            // alert("Error al obtener productos");
             console.log(error);
         }
     }
