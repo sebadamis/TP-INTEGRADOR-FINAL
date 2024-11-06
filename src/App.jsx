@@ -30,7 +30,7 @@ export default function App() {
 
           <Route path="/registro" element={ <Register/> }/>
 
-          <Route path="/product-detail/:id" element={ <ProductDetail/> }/>
+          <Route path="/product-detail/:_id" element={ <ProductDetail/> }/>
 
           <Route  path="/admin-product" element={ 
               <AdminGuard>

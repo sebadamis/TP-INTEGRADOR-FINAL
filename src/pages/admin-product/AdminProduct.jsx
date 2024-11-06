@@ -176,7 +176,11 @@ export default function AdminProduct() {
 
       } catch (error) {
         console.log(error)
-        // Swal y mostrar error al user
+        Swal.fire({
+          title:"Error al crear producto",
+          text: "No se pudo crear un nuevo producto",
+          icon: "error"
+          })
       }
       
     }
@@ -184,6 +188,7 @@ export default function AdminProduct() {
     // # Editar productos
     // crear un función para obtener los datos del producto a editar
     function handleEditProduct(producto) {
+
 
       console.log("Producto a editar", producto);
       setSelectedProduct(producto);

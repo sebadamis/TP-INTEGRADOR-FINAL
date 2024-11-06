@@ -13,7 +13,6 @@ const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 export default function AdminUser() {
     const [ users, setUsers ] = useState([]);
-    // Estado para manejar la edición de productos
     const [ selectedUser, setSelectedUser ] = useState(null)
 
     const { register, setValue, reset, handleSubmit, formState: { errors, isValid } } = useForm();
@@ -88,18 +87,18 @@ export default function AdminUser() {
         }).then(async(result) => {
             try {
                 
-            if(result.isConfirmed) {
-                const response = await axios.delete(`${URL}/users/${_id}`,
-                    {
-                        headers: {
-                            Authorization: token
-                        }
-                    });
+                if(result.isConfirmed) {
+                    const response = await axios.delete(`${URL}/users/${_id}`,
+                        {
+                            headers: {
+                                Authorization: token
+                            }
+                        });
 
-                console.log(response.data);
-        
-                getUsers();
-            }
+                    console.log(response.data);
+            
+                    getUsers();
+                }
             } catch (error) {
             console.log(error)
             // Mensaje para el usuario de que algo falló
@@ -122,10 +121,10 @@ export default function AdminUser() {
         formData.append("name", users.name);
         formData.append("email", users.email);
         formData.append("password", users.password);
-        formData.append("datebirth", users.datebirth);
+        // formData.append("datebirth", users.datebirth);
         formData.append("pais", users.pais);
         formData.append("role", users.role);
-        formData.append("createdAt", users.createdAt);
+        // formData.append("createdAt", users.createdAt);
         formData.append("comment", users.comment);
         if(users.image[0]){
             formData.append("image", users.image[0]);
@@ -149,7 +148,9 @@ export default function AdminUser() {
             timer: 1500
             })
 
+            
             setSelectedUser(null)
+            
             
 
         } else {
@@ -172,7 +173,7 @@ export default function AdminUser() {
 
         
         getUsers();
-        // setSelectedProduct(null)
+        
 
         } catch (error) {
         console.log(error)
@@ -183,10 +184,10 @@ export default function AdminUser() {
 
     // # Editar productos
     // crear un función para obtener los datos del producto a editar
-    function handleEditUser(user) {
+    function handleEditUser(users) {
 
-        console.log("Usuario a editar", user);
-        setSelectedUser(user);
+        console.log("Usuario a editar", users);
+        setSelectedUser(users);
 
     }
 
@@ -208,7 +209,7 @@ export default function AdminUser() {
 
                             { errors.name?.type === "required" && <div className="input-error">El campo es requerido</div> }
 
-                            { errors.name?.type === "minLength" && <div className="input-error">Mínimo de carácteres es 10</div> }
+                            { errors.name?.type === "minLength" && <div className="input-error">Mínimo de carácteres es 5</div> }
 
                         </div>
 
