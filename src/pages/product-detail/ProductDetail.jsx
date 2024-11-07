@@ -74,7 +74,7 @@ export default function ProductDetail() {
                                     {products.name}
                                 </p>
                                 <p className="categoria">
-                                    Categoría: {products.categories}
+                                    Categoría: {products.category}        
                                 </p>
                                 <p className="descripcion">
                                     Descripción: {products.description}

@@ -106,73 +106,74 @@ export default function AdminUser() {
                 title: "Error al borrar",
                 text: "El usuario no fue borrado",
                 icon: "error"
-            })
+                })
             }
         })
 
     }
 
-    async function onUserSubmit(users) {
-        console.log(users)
+    async function onUserSubmit(usuario) {
+        // console.log(usuario)
+
         try {
         
-        const formData = new FormData();
-        
-        formData.append("name", users.name);
-        formData.append("email", users.email);
-        formData.append("password", users.password);
-        // formData.append("datebirth", users.datebirth);
-        formData.append("pais", users.pais);
-        formData.append("role", users.role);
-        // formData.append("createdAt", users.createdAt);
-        formData.append("comment", users.comment);
-        if(users.image[0]){
-            formData.append("image", users.image[0]);
-        }
+            const formData = new FormData();
+            
+            formData.append("name", usuario.name);
+            formData.append("email", usuario.email);
+            formData.append("password", usuario.password);
+            // formData.append("datebirth", usuario.datebirth);
+            formData.append("pais", usuario.pais);
+            formData.append("role", usuario.role);
+            // formData.append("createdAt", usuario.createdAt);
+            formData.append("comment", usuario.comment);
+            if(usuario.image[0]){
+                formData.append("image", usuario.image[0]);
+            }
 
-        if(selectedUser) {
-            
-            const { _id } = selectedUser;
-            const response = await axios.put(`${URL}/users/${_id}`, formData,
-                {
-                    headers: {
-                        Authorization: token
-                    }
-                });
-            
-            console.log(response.data)
-            Swal.fire({
-            title:"Actualización correcta",
-            text: "El usuario fue actualizado correctamente",
-            icon: "success",
-            timer: 1500
-            })
-
-            
-            setSelectedUser(null)
-            
-            
-
-        } else {
-            
-            const response = await axios.post(`${URL}/users`, formData, 
-                {
-                    headers: {
-                        Authorization: token
-                    }
-                });
-            
-            console.log(response.data);
-            Swal.fire({
-                title:"Creaste un Usuario nuevo",
-                text: "Se creó un Usuario Nuevo",
-                icon: "success"
+            if(selectedUser) {
+                
+                const { _id } = selectedUser;
+                const response = await axios.put(`${URL}/users/${_id}`, formData,
+                    {
+                        headers: {
+                            Authorization: token
+                        }
+                    });
+                
+                console.log(response.data)
+                Swal.fire({
+                title:"Actualización correcta",
+                text: "El usuario fue actualizado correctamente",
+                icon: "success",
+                timer: 1500
                 })
 
-        }
+                
+                setSelectedUser(null)
+                
+                
+
+            } else {
+                
+                const response = await axios.post(`${URL}/users`, formData, 
+                    {
+                        headers: {
+                            Authorization: token
+                        }
+                    });
+                
+                console.log(response.data);
+                Swal.fire({
+                    title:"Creaste un Usuario nuevo",
+                    text: "Se creó un Usuario Nuevo",
+                    icon: "success"
+                    })
+
+            }
 
         
-        getUsers();
+            getUsers();
         
 
         } catch (error) {
@@ -184,10 +185,10 @@ export default function AdminUser() {
 
     // # Editar productos
     // crear un función para obtener los datos del producto a editar
-    function handleEditUser(users) {
+    function handleEditUser(user) {
 
-        console.log("Usuario a editar", users);
-        setSelectedUser(users);
+        console.log("Usuario a editar", user);
+        setSelectedUser(user);
 
     }
 
