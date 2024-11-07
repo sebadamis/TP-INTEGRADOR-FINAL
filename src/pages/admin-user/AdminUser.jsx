@@ -123,7 +123,6 @@ export default function AdminUser() {
             formData.append("password", usuario.password);
             // formData.append("datebirth", usuario.datebirth);
             formData.append("pais", usuario.pais);
-            formData.append("role", usuario.role);
             // formData.append("createdAt", usuario.createdAt);
             formData.append("comment", usuario.comment);
             if(usuario.image[0]){

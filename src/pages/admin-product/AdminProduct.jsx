@@ -138,6 +138,7 @@ export default function AdminProduct() {
                 Authorization: token
             }
         });
+        
           console.log(response.data.products)
           Swal.fire({
             title:"Actualización correcta",
@@ -145,9 +146,8 @@ export default function AdminProduct() {
             icon: "success",
             timer: 1500
           })
-
-          setSelectedProduct(null)
           
+          setSelectedProduct(null)
 
         } else {
           // si no tengo estado selectedProduct (null) significa que estoy creando un producto
