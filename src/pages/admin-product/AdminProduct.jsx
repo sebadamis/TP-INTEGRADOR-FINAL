@@ -117,7 +117,6 @@ export default function AdminProduct() {
     }
 
     async function onProductSubmit(producto) {
-      // console.log(producto)
 
       try {
 
@@ -139,7 +138,7 @@ export default function AdminProduct() {
                 Authorization: token
             }
         });
-          console.log(response.data)
+          console.log(response.data.products)
           Swal.fire({
             title:"Actualización correcta",
             text: "El producto fue actualizado correctamente",
@@ -167,10 +166,8 @@ export default function AdminProduct() {
             icon: "success"
             })
             
-
         }
-
-        
+      
         getProducts();
         // setSelectedProduct(null)
 

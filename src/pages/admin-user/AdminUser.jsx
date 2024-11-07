@@ -113,7 +113,6 @@ export default function AdminUser() {
     }
 
     async function onUserSubmit(usuario) {
-        // console.log(usuario)
 
         try {
         
@@ -148,10 +147,8 @@ export default function AdminUser() {
                 icon: "success",
                 timer: 1500
                 })
-
                 
                 setSelectedUser(null)
-                
                 
 
             } else {
