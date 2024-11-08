@@ -13,11 +13,11 @@ export default function Register() {
 
 
 
-  async function onRegister(user) {
+  async function onRegister(users) {
     try {
 
       
-      const response = await axios.post(`${URL}/users`, user)
+      const response = await axios.post(`${URL}/users`, users)
       console.log(response.data);
 
       Swal.fire({
@@ -56,7 +56,7 @@ export default function Register() {
                 id="nombre-completo"
                 {...register("name", {
                   required: true,
-                  minLength: 10,
+                  minLength: 5,
                   maxLength: 50,
                   autoFocus: "",
                   placeholder: "Juan Perez"
@@ -72,7 +72,7 @@ export default function Register() {
                 {...register("email", {
                   placeholder: "user@mail.com",
                   pattern: "[A-Za-z0-9._+\n-']+@[A-Za-z0-9.\n-]+\n.[A-Za-z]{2,}$",
-                  minLength: 15,
+                  minLength: 6,
                   maxLength: 50,
                   required: true
                 })}/>
@@ -85,7 +85,7 @@ export default function Register() {
                 type="password"
                 id="password"
                 {...register("password",{
-                  minLength: 8,
+                  minLength: 3,
                   maxLength: 20,
                   placeholder: "Ingrese su Contraseña",
                   required: true
@@ -121,7 +121,7 @@ export default function Register() {
 
             <div className="input-group">
               <label htmlFor="">Avatar (Subir una imagen)</label>
-              <input type="file" {...register("image", { required: true }) } />
+              <input type="file" {...register("image") } />
             </div>
             { errors.image && <div className="input-error">Debe subir una Imagen</div> }
 
@@ -140,8 +140,8 @@ export default function Register() {
             { errors.comment && <div className="input-error">Debe escribir un comentario</div> }
 
             <div className="input-group-boton">
-              
-              <button type="submit" onClick={() => onRegister()} disabled={ !isValid }>Enviar Registro</button>
+                      {/* onClick={() => onRegister()} */}
+              <button type="submit"  disabled={ !isValid }>Enviar Registro</button>
               <button type="reset" onClick={() => reset()}>Borrar todo</button>
               
             </div>

@@ -34,7 +34,7 @@ export default function AdminUser() {
             setValue("password",  selectedUser.password),
             // setValue("datebirth", selectedUser.datebirth),
             setValue("pais", selectedUser.pais),
-            setValue("image", selectedUser.image),
+            // setValue("image", selectedUser.image),
             setValue("comment", selectedUser.comment),
             setValue("role", selectedUser.role)
 
@@ -123,7 +123,7 @@ export default function AdminUser() {
             formData.append("password", usuario.password);
             // formData.append("datebirth", usuario.datebirth);
             formData.append("pais", usuario.pais);
-            // formData.append("createdAt", usuario.createdAt);
+            formData.append("createdAt", usuario.createdAt);
             formData.append("comment", usuario.comment);
             if(usuario.image[0]){
                 formData.append("image", usuario.image[0]);
@@ -174,17 +174,21 @@ export default function AdminUser() {
 
         } catch (error) {
         console.log(error)
-        // Swal y mostrar error al user
+        Swal.fire({
+            title: "Error al crear Usuario",
+            text: "Ocurrio un error al crear usuario",
+            icon: "error"
+        })
         }
         
     }
 
     // # Editar productos
     // crear un función para obtener los datos del producto a editar
-    function handleEditUser(user) {
+    function handleEditUser(usuario) {
 
-        console.log("Usuario a editar", user);
-        setSelectedUser(user);
+        console.log("Usuario a editar", usuario);
+        setSelectedUser(usuario);
 
     }
 
@@ -236,12 +240,13 @@ export default function AdminUser() {
                             <label htmlFor="pais">País</label>
                             <select {...register("pais", { required: true })}>
 
-                                <option value="Argentina">Argentina</option>
-                                <option value="Colombia">Colombia</option>
-                                <option value="Brasil">Brasil</option>
-                                <option value="Mexico">México</option>
-                                <option value="Uruguay">Uruguay</option>
-                                <option value="Chile">Chile</option>
+                            <option value="ARG">Argentina</option>
+                            <option value="BRA">Brasil</option>
+                            <option value="PER">Perú</option>
+                            <option value="CHI">Chile</option>
+                            <option value="COL">Colombia</option>
+                            <option value="PAR">Paraguay</option>
+                            <option value="VEN">Venezuela</option>
 
                             </select>
                         </div>

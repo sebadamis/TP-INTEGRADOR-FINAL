@@ -33,7 +33,7 @@ export default function AdminProduct() {
           setValue("name", selectedProduct.name),
           setValue("price", selectedProduct.price),
           setValue("description",  selectedProduct.description),
-          setValue("image", selectedProduct.image),
+          // setValue("image", selectedProduct.image),
           setValue("category", selectedProduct.category),
           setValue("createdAt", selectedProduct.createdAt)
 
@@ -126,6 +126,7 @@ export default function AdminProduct() {
         formData.append("price", producto.price);
         formData.append("description", producto.description);
         formData.append("category", producto.category);
+        formData.append("createdAt", producto.createdAt);
         if(producto.image[0]){
           formData.append("image", producto.image[0]);
         }
