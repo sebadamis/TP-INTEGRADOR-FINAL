@@ -6,6 +6,8 @@ import "../../styles/form.css";
 import Swal from "sweetalert2";
 import "./adminuser.css";
 import { useUser } from "../../context/UserContext";
+// import SelectOptionForm from "../../components/select-option-form/SelecOptionForm";
+
 
 
 const URL = import.meta.env.VITE_LOCAL_SERVER;
@@ -14,6 +16,7 @@ const URL = import.meta.env.VITE_LOCAL_SERVER;
 export default function AdminUser() {
     const [ users, setUsers ] = useState([]);
     const [ selectedUser, setSelectedUser ] = useState(null)
+    // const [selectedCountry, setSelectedCountry] = useState("");
 
     const { register, setValue, reset, handleSubmit, formState: { errors, isValid } } = useForm();
 
@@ -129,6 +132,8 @@ export default function AdminUser() {
                 formData.append("image", usuario.image[0]);
             }
 
+            // problema al capturar valor del option boton (pais)
+
             if(selectedUser) {
                 
                 const { _id } = selectedUser;
@@ -240,13 +245,15 @@ export default function AdminUser() {
                             <label htmlFor="pais">País</label>
                             <select {...register("pais", { required: true })}>
 
-                            <option value="ARG">Argentina</option>
-                            <option value="BRA">Brasil</option>
-                            <option value="PER">Perú</option>
-                            <option value="CHI">Chile</option>
-                            <option value="COL">Colombia</option>
-                            <option value="PAR">Paraguay</option>
-                            <option value="VEN">Venezuela</option>
+                                <option value="ARGENTINA">Argentina</option>
+                                <option value="BRASIL">Brasil</option>
+                                <option value="PERU">Perú</option>
+                                <option value="CHILE">Chile</option>
+                                <option value="COLOMBIA">Colombia</option>
+                                <option value="PARAGUAY">Paraguay</option>
+                                <option value="VENEZUELA">Venezuela</option>
+
+                            {/* <SelectOptionForm/> */}
 
                             </select>
                         </div>

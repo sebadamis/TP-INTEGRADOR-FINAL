@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function OrderDialog() {
 
-    const { order, toggleModal, setToggleModal, total } = useOrder();
+    const { order, toggleModal, setToggleModal, total, createOrder } = useOrder();
 
     if(!toggleModal) return;
 
@@ -23,7 +23,7 @@ export default function OrderDialog() {
                     <ul className="order-list">
                         {
                         order.map((item) => (
-                            <OrderItem  key={item.id} item={item} />
+                            <OrderItem  key={item._id} item={item} />
                         ))
                         }
                         
@@ -42,7 +42,7 @@ export default function OrderDialog() {
                     </button>
 
 
-                    <button className="btn">
+                    <button className="btn" onClick={()=> createOrder()}>
                         Finalizar compra
                     </button>
                 </div>

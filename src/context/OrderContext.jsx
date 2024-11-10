@@ -1,12 +1,17 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
+import { useUser } from './UserContext';
+import axios from 'axios';
 
+const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 const OrderContext = createContext();
 
 export const useOrder = () => useContext(OrderContext);
 
 export default function OrderProvider({ children }) {
+
+    const { user } = useUser();
 
     const [ count, setCount ] = useState(0)
     const [ order, setOrder ] = useState([]);
@@ -19,6 +24,8 @@ export default function OrderProvider({ children }) {
         calculateTotal();
         // changeItemQuantity();
     }, [order])
+
+    const { token } = useUser();
 
     function addProduct(product) {
 
@@ -64,10 +71,6 @@ export default function OrderProvider({ children }) {
 
     function removeProduct(_id){
         
-        // const indice = order.findIndex(prod => prod.id === id);
-        // const orderCopy = [...order];
-        // orderCopy.splice(indice, 1);
-        // setOrder(orderCopy);
 
         const orderFiltered = order.filter(prod => prod._id !== _id);
         
@@ -87,20 +90,52 @@ export default function OrderProvider({ children }) {
 
         setOrder([...order]);
 
-        // const newOrder = order.map(prod => {
-        //     if (prod.id === id) {
-        //         prod.quantity = value;
-        //     }
-        // return prod;
-        // })
-        // setOrder(newOrder);
 
-        // const producto = order.find(prod => prod.id === id);
-        // producto.quantity = value;
-        // setOrder([...order]);
     }
 
+    async function createOrder(){
+        
+        try {
 
+            if (!user?._id) {
+                Swal.fire({
+                    title: "No iniciaste tu sesión",
+                    text: "Necesitas iniciar sesion para crear una orden de compra",
+                    icon: 'info'
+                })
+            }
+            
+            const products = order.map(prod=> {
+
+                return {
+                    product: prod._id,
+                    quantity: prod.quantity,
+                    price: prod.price
+                }
+            });
+            Swal.fire({
+                title:"Compra realizada",
+                text: "Confirmaste tu compra",
+                icon: "success"
+            })
+            console.log(products);
+    
+    
+            await axios.post(`${URL}/orders`, {products, user: user._id, total},
+                {
+                headers: {
+                    Authorization: token
+                }
+            });
+
+
+        } catch (error) {
+            console.log(error);
+        }
+
+        
+
+    }
 
     return (
         <OrderContext.Provider
@@ -113,6 +148,7 @@ export default function OrderProvider({ children }) {
                 total,
                 removeProduct,
                 changeItemQuantity,
+                createOrder
             }}
         >
             { children }

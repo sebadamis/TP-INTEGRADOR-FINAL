@@ -13,19 +13,34 @@ export default function Register() {
 
 
 
-  async function onRegister(users) {
+  async function onRegister(usuario) {
     try {
 
+      const formData = new FormData();
+            
+            formData.append("name", usuario.name);
+            formData.append("email", usuario.email);
+            formData.append("password", usuario.password);
+            // formData.append("datebirth", usuario.datebirth);
+            formData.append("pais", usuario.pais);
+            formData.append("createdAt", usuario.createdAt);
+            formData.append("comment", usuario.comment);
+            if(usuario.image[0]){
+                formData.append("image", usuario.image[0]);
+            }
+
+            // los datos del formulario no se vuelcan el la DB users
+
       
-      const response = await axios.post(`${URL}/users`, users)
-      console.log(response.data);
+      const response = await axios.post(`${URL}/users`, formData)
+      console.log(response.data.users);
 
       Swal.fire({
         title:"Éxito", 
         text: "Se ha creado el nuevo Usuario",
-        color: "#111111",
+        color: "#000000",
         icon: "success",
-        background: '#789877'
+        background: '#666666'
       })
 
 
@@ -105,15 +120,15 @@ export default function Register() {
             <div className="input-group">
               <label htmlFor="#pais">País: </label>
               <select name="pais" id="pais" {...register("pais",{
-                required: true
+                defaultValue: "ARGENTINA", required: true
               })}>
-                <option value="ARG">Argentina</option>
-                <option value="BRA">Brasil</option>
-                <option value="PER">Perú</option>
-                <option value="CHI">Chile</option>
-                <option value="COL">Colombia</option>
-                <option value="PAR">Paraguay</option>
-                <option value="VEN">Venezuela</option>
+                <option value="ARGENTINA">Argentina</option>
+                <option value="BRASIL">Brasil</option>
+                <option value="PERU">Perú</option>
+                <option value="CHILE">Chile</option>
+                <option value="COLOMBIA">Colombia</option>
+                <option value="PARAGUAY">Paraguay</option>
+                <option value="VENEZUELA">Venezuela</option>
               </select>
             </div>
             { errors.pais && <div className="input-error">Debe ingresar su País</div> }
@@ -132,7 +147,7 @@ export default function Register() {
                 id="comentario"
               {...register("comment",{
                 placeholder: "Escriba un comentario",
-                minLength: 20,
+                minLength: 10,
                 maxLength: 120,
                 defaultValue: ""
               })}/>
