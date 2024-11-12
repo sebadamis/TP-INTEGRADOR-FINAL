@@ -33,7 +33,6 @@ export default function AdminProduct() {
           setValue("name", selectedProduct.name),
           setValue("price", selectedProduct.price),
           setValue("description",  selectedProduct.description),
-          // setValue("image", selectedProduct.image),
           setValue("category", selectedProduct.category),
           setValue("createdAt", selectedProduct.createdAt)
 
@@ -49,7 +48,6 @@ export default function AdminProduct() {
         
         const response = await axios.get(`${URL}/categories`);
 
-        // console.log(response.data);
 
         setCategories(response.data.categories);
 
@@ -71,7 +69,6 @@ export default function AdminProduct() {
           }
       });
 
-        // console.log(response.data);
 
         setProducts(response.data.products);
 
@@ -151,7 +148,7 @@ export default function AdminProduct() {
           setSelectedProduct(null)
 
         } else {
-          // si no tengo estado selectedProduct (null) significa que estoy creando un producto
+          
           const response = await axios.post(`${URL}/products`, formData,
             {
             headers: {
@@ -170,7 +167,6 @@ export default function AdminProduct() {
         }
       
         getProducts();
-        // setSelectedProduct(null)
 
       } catch (error) {
         console.log(error)

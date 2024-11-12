@@ -25,7 +25,7 @@ export const UserProvider = ({children}) => {
             const response = await axios.post(`${URL}/login`, data);
     
         
-            console.log(response.data);
+            // console.log(response.data);
             const {user, token} = response.data;
 
             setUser(user);

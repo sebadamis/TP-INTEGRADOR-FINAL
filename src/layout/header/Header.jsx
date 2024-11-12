@@ -74,11 +74,11 @@ export default function Header() {
           </div>
           <div className="user">
             {user?.name || "NO USER"}
-        {/* Icono del carrito de compras */}
+        
             <div className="order">
               
               <div className="order-count">{count}</div>
-
+                {/* Icono del carrito de compras */}
                 <FontAwesomeIcon  icon={faCartShopping} onClick={() => setToggleModal(estado => !estado) } />
               </div>
             <div className="avatar">

@@ -17,11 +17,8 @@ export default function UserTable({ users, deleteUser, handleEditUser }) {
                     <th>
                         E-mail
                     </th>
-                    {/* <th>
-                        Contraseña
-                    </th> */}
                     <th>
-                        Fecha  de Nacimiento
+                        Role
                     </th>
                     <th>
                         País

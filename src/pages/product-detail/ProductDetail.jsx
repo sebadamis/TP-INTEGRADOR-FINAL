@@ -41,7 +41,7 @@ export default function ProductDetail() {
             const temp = order.find(p => p._id === _id);
 
             response.data.products.quantity = temp?.quantity ?? 1;
-            console.log(response.data.products);
+            // console.log(response.data.products);
     
             setProducts(response.data.products);
     

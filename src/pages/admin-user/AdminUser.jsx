@@ -61,7 +61,7 @@ export default function AdminUser() {
             }
         });
 
-        console.log(response.data);
+        // console.log(response.data);
         setUsers(response.data.users)
 
         } catch (error) {
@@ -193,7 +193,7 @@ export default function AdminUser() {
     // crear un función para obtener los datos del producto a editar
     function handleEditUser(usuario) {
 
-        console.log("Usuario a editar", usuario);
+        // console.log("Usuario a editar", usuario);
         setSelectedUser(usuario);
 
     }
@@ -234,12 +234,7 @@ export default function AdminUser() {
                             { errors.password && <div className="input-error">El campo CONTRASEÑA es obligatorio</div> }
                         </div>
 
-                        {/* <div className="input-group">
-                            <label htmlFor="datebirth">Fecha de Nacimiento</label>
-                            <input type="date" {...register("datebirth", { required: true })}  />
-
-                            { errors.datebirth && <div className="input-error">Es obligatorio que ingrese su fecha de nacimiento</div> }
-                        </div> */}
+                        
 
                         <div className="input-group">
 

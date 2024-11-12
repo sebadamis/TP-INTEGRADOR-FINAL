@@ -97,6 +97,7 @@ export default function OrderProvider({ children }) {
         
         try {
 
+            
             if (!user?._id) {
                 Swal.fire({
                     title: "No iniciaste tu sesión",
@@ -118,6 +119,7 @@ export default function OrderProvider({ children }) {
                 text: "Confirmaste tu compra",
                 icon: "success"
             })
+            // mostar order de compra del usuario en consola
             console.log(products);
     
     

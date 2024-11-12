@@ -11,7 +11,6 @@ export default function Register() {
 
   const  {register, handleSubmit, reset, formState: {errors , isValid} } = useForm();
 
-  //formState: {errors , isValid}
 
 
   async function onRegister(usuario) {
@@ -22,15 +21,12 @@ export default function Register() {
             formData.append("name", usuario.name);
             formData.append("email", usuario.email);
             formData.append("password", usuario.password);
-            //formData.append("datebirth", usuario.datebirth);
             formData.append("pais", usuario.pais);
-            //formData.append("createdAt", usuario.createdAt);
             formData.append("comment", usuario.comment);
             if(usuario.image[0]){
                 formData.append("image", usuario.image[0]);
             }
 
-            // los datos del formulario no se vuelcan el la DB users
 
       
       const response = await axios.post(`${URL}/users`, formData);
@@ -110,14 +106,6 @@ export default function Register() {
             </div>
             { errors.password && <div className="input-error">Es obligatorio que ingrese su Contraseña</div> }
             
-            {/* <div className="input-group">
-              <label htmlFor="#fecha-nacimiento">Fecha de Nacimiento: </label>
-              <input type="date" id="fecha-nacimiento"
-                {...register("datebirth",{
-                  required: true
-                })}/>
-                { errors.datebirth && <div className="input-error">Es obligatorio que ingrese su fecha de nacimiento</div> }
-            </div> */}
 
             <div className="input-group">
               <label htmlFor="#pais">País: </label>
@@ -157,8 +145,7 @@ export default function Register() {
             { errors.comment && <div className="input-error">Debe escribir un comentario</div> }
 
             <div className="input-group-boton">
-                      {/* onClick={() => onRegister()} */}
-                      {/* disabled={ !isValid } */}
+                      
               <button type="submit"  disabled={ !isValid }>Enviar Registro</button>
               <button type="reset" onClick={() => reset()}>Borrar todo</button>
               

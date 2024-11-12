@@ -1,5 +1,5 @@
 import "./userrow.css"
-import { formatDate } from '../../utils/formatDate';
+// import { formatDate } from '../../utils/formatDate';
 
 const URL = import.meta.env.VITE_LOCAL_SERVER;
 
@@ -20,12 +20,9 @@ export default function UserRow({ users, deleteUser, handleEditUser }) {
                 {users.email}
             </td>
 
-            {/* <td className="password">
-                {users.password}
-            </td> */}
 
             <td className="datebirth">
-                {formatDate(users.datebirh)}
+                {users.role}
             </td>
 
             <td className="pais">
