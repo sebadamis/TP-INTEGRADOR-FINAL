@@ -9,8 +9,9 @@ const URL = import.meta.env.VITE_LOCAL_SERVER;
 
 export default function Register() {
 
-  const  {register, handleSubmit, reset , formState: {errors , isValid} } = useForm();
+  const  {register, handleSubmit, reset, formState: {errors , isValid} } = useForm();
 
+  //formState: {errors , isValid}
 
 
   async function onRegister(usuario) {
@@ -21,9 +22,9 @@ export default function Register() {
             formData.append("name", usuario.name);
             formData.append("email", usuario.email);
             formData.append("password", usuario.password);
-            // formData.append("datebirth", usuario.datebirth);
+            //formData.append("datebirth", usuario.datebirth);
             formData.append("pais", usuario.pais);
-            formData.append("createdAt", usuario.createdAt);
+            //formData.append("createdAt", usuario.createdAt);
             formData.append("comment", usuario.comment);
             if(usuario.image[0]){
                 formData.append("image", usuario.image[0]);
@@ -32,7 +33,8 @@ export default function Register() {
             // los datos del formulario no se vuelcan el la DB users
 
       
-      const response = await axios.post(`${URL}/users`, formData)
+      const response = await axios.post(`${URL}/users`, formData);
+      
       console.log(response.data.users);
 
       Swal.fire({
@@ -156,6 +158,7 @@ export default function Register() {
 
             <div className="input-group-boton">
                       {/* onClick={() => onRegister()} */}
+                      {/* disabled={ !isValid } */}
               <button type="submit"  disabled={ !isValid }>Enviar Registro</button>
               <button type="reset" onClick={() => reset()}>Borrar todo</button>
               

@@ -36,7 +36,8 @@ export default function AdminUser() {
             setValue("email", selectedUser.email),
             setValue("password",  selectedUser.password),
             // setValue("datebirth", selectedUser.datebirth),
-            setValue("pais", selectedUser.pais),
+            //setValue("pais", selectedUser.pais),
+            setValue("pais", selectedUser.pais.toUpperCase()),
             // setValue("image", selectedUser.image),
             setValue("comment", selectedUser.comment),
             setValue("role", selectedUser.role)
@@ -126,7 +127,7 @@ export default function AdminUser() {
             formData.append("password", usuario.password);
             // formData.append("datebirth", usuario.datebirth);
             formData.append("pais", usuario.pais);
-            formData.append("createdAt", usuario.createdAt);
+            //formData.append("createdAt", usuario.createdAt);
             formData.append("comment", usuario.comment);
             if(usuario.image[0]){
                 formData.append("image", usuario.image[0]);
