@@ -46,7 +46,12 @@ export default function AdminProduct() {
 
       try {
         
-        const response = await axios.get(`${URL}/categories`);
+        const response = await axios.get(`${URL}/categories`,
+          {
+          headers: {
+              Authorization: token
+          }
+      });
 
 
         setCategories(response.data.categories);
