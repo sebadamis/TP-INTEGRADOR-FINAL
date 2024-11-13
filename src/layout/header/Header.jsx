@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { useUser } from "../../context/UserContext";
 
-const URL = import.meta.env.VITE_LOCAL_SERVER;
+const URL = import.meta.env.VITE_SERVER;
 
 export default function Header() {
   

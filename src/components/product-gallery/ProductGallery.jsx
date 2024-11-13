@@ -6,7 +6,7 @@ import { useUser } from '../../context/UserContext';
 
 
 
-const URL = import.meta.env.VITE_LOCAL_SERVER;
+const URL = import.meta.env.VITE_SERVER;
 
 export default function ProductGallery({ category }) {
     const [ products, setProducts ] = useState([]);

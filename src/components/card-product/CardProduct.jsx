@@ -4,7 +4,7 @@ import "./cardproduct.css";
 import { NavLink } from "react-router-dom";
 import { useOrder } from "../../context/OrderContext";
 
-const URL = import.meta.env.VITE_LOCAL_SERVER;
+const URL = import.meta.env.VITE_SERVER;
 
 export default function CardProduct({prod}) {
     

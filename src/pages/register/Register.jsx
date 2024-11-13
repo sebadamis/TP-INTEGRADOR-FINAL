@@ -3,7 +3,7 @@ import "./register.css"
 import axios from "axios";
 import Swal from "sweetalert2";
 
-const URL = import.meta.env.VITE_LOCAL_SERVER;
+const URL = import.meta.env.VITE_SERVER;
 
 
 

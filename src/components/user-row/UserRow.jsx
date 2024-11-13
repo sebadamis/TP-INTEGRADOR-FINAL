@@ -1,7 +1,7 @@
 import "./userrow.css"
 // import { formatDate } from '../../utils/formatDate';
 
-const URL = import.meta.env.VITE_LOCAL_SERVER;
+const URL = import.meta.env.VITE_SERVER;
 
 export default function UserRow({ users, deleteUser, handleEditUser }) {
     return (

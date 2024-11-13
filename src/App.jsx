@@ -46,7 +46,7 @@ export default function App() {
 
           <Route path="/login" element={ <Login/> }/>
 
-          <Route path="*" element={<h1>Error Page NOT FOUND</h1>}/>
+          <Route path="*" element={<main>Error Page NOT FOUND</main>}/>
 
         </Routes>
       </main>

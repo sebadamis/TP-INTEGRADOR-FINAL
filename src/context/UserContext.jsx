@@ -3,7 +3,7 @@ import { createContext, useContext, useState } from "react"
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
-const URL = import.meta.env.VITE_LOCAL_SERVER;
+const URL = import.meta.env.VITE_SERVER;
 
 export const UserContext = createContext();
 

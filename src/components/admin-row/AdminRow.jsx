@@ -1,7 +1,7 @@
 import { formatDate } from '../../utils/formatDate';
 import './AdminRow.css';
 
-const URL = import.meta.env.VITE_LOCAL_SERVER;
+const URL = import.meta.env.VITE_SERVER;
 
 export default function AdminRow({ producto, deleteProduct, handleEditProduct }) {
   return (

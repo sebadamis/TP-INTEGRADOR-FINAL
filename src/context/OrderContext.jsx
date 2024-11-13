@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 import { useUser } from './UserContext';
 import axios from 'axios';
 
-const URL = import.meta.env.VITE_LOCAL_SERVER;
+const URL = import.meta.env.VITE_SERVER;
 
 const OrderContext = createContext();
 
