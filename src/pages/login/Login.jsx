@@ -21,9 +21,9 @@ export default function Login() {
                         completa los datos para ingresar al sitio
                     </div>
                     </div>
-                    <div className="formulario-container">
+                    <div className="formulario-container-login">
                     <form className="formulario" onSubmit={handleSubmit(login)}>
-                        <h3 className="titulo-formulario">Login de Usuario</h3>    
+                        <h3 className="titulo-formulario">Ingresar al Sistema</h3>    
                         
                         
                         <div className="input-group">
@@ -31,6 +31,7 @@ export default function Login() {
                         <input
                             type="email"
                             id="e-mail"
+                            placeholder="email@email.com"
                             {...register("email", {
                             placeholder: "user@mail.com",
                             pattern: "[A-Za-z0-9._+\n-']+@[A-Za-z0-9.\n-]+\n.[A-Za-z]{2,}$",
@@ -46,6 +47,7 @@ export default function Login() {
                         <input
                             type="password"
                             id="password"
+                            placeholder="******"
                             {...register("password",{
                             minLength: 4,
                             maxLength: 20,

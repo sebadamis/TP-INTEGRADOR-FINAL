@@ -17,18 +17,20 @@ body {
     text-align: center;
 }
 
-.formulario-container {
+.formulario-container-login {
     color: white;
     background-color: #340aa8;
     padding: 1rem;
     /* background-image: url("https://i.ibb.co/pyQSgXZ/fondo-contacto.webp"); */
     /* background-repeat: repeat; */
+    /* background-image: url("https://i.ibb.co/VpGcqr3/De-Watermark-ai-1731522354195.png"); */
+    background-image: url("https://i.ibb.co/SXcYcG3/fondo-login.jpg");
     margin: auto;
     justify-content: center;
     flex-shrink: 2;
-    width: 100%;
+    width: 80%;
     height: auto;
-    border-radius: 15%;
+    border-radius: 30px;
     
     .input-group {
         display: flex;
@@ -72,13 +74,17 @@ body {
                 display: flexbox;
                 margin: 1rem auto;
                 padding: 0.5rem;
-                background-color: #222;
+                background-color: #190a69;
                 border-radius: 15px;
                 color: white;
                 outline: none;
                 border: none;
                 width: 15rem;
                 cursor: pointer;
+
+            &:hover{
+                background-color: #290dca;
+            }
         }
     }
 }

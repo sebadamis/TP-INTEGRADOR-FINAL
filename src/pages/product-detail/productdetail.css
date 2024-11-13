@@ -3,11 +3,11 @@
     flex-direction: row;
 	flex-wrap: nowrap;
     height: auto;
-    width: 80%;
+    width: 90%;
     margin: 3rem auto;
-	border-radius: 5%;
+	border-radius: 30px;
 	contain: content;
-	background-image: url("https://i.postimg.cc/d1cPZVTc/fondo-detail-oscuro.webp");
+	background-image: url("https://i.ibb.co/fYK2cDJ/fondo-cart-button.webp");
 	background-size: cover;
 	flex: 1;
 }
@@ -25,71 +25,93 @@
     font-weight: 800;
     text-align: center;
     margin: 1rem 0;
+	color: #086bb8;
+	text-decoration-style: solid;
 	
+}
+
+.img-info-container {
+	display: block;
+	height: auto;
+	width: auto;
+	margin: auto;
+	object-fit: cover;
+	flex-shrink: 1;
 }
 
 .section-img {
     width: 50%;
-    height: auto;
+    height: 90%;
     display: inline-block;
 	background-color: none;
 	margin: auto;
 	align-items: center;
-	justify-content: first baseline;
 	contain: content;
 	
 
 }
 
-.img-container>img {
-    display: flex;
-    align-items: center;
+.img-container>.img {
+    display: inline-block;
     justify-content: center;
+	align-items: center;
+	height: 100%;
+	width: 100%;
     width: 18rem;
-    height: auto;
-    margin: auto;
+    height: 18rem;
+    margin: auto 1rem;
 	border: .5rem solid black;
-	border-radius: 5%;
+	border-radius: 30px;
 	background-color: rgba(255, 255, 255, 0.719);
 	contain: content;
 	object-fit: cover;
+	flex-shrink: 3;
+	aspect-ratio: 1/1;
 }
-img {
+.img {
     margin: auto;
 	object-fit: cover;
+	aspect-ratio: 3/4;
+	padding: 1.5rem;
 }
 
 .info-section {
 	display: inline-block;
-    width: 50%;
-	height: auto;
+    width: 18rem;
+    height: 18rem;
 	border: .5rem solid black;
-	background-color: rgba(105, 105, 105, 0.801);
-	margin: auto;
+	background-color: rgba(85, 85, 85, 0.801);
+	margin: auto 1rem;
 	contain: content;
-	justify-content: first baseline;
-	border-radius: 5%;
+	border-radius: 30px;
 	align-items: center;
+	flex-shrink: 3;
+	aspect-ratio: 1/1;
 }
 .text-info-container {
-    width: 80%;
+    width: 90%;
     height: auto;
     font-weight: 400;
     margin: .5rem auto;
-    color: white;
+    color: rgb(255, 255, 255);
+	/* color: #05253e; */
 	contain: content;
+	text-align: center;
 
 	.titulo-producto {
 		font-size: 2rem;
 	}
 	.categoria {
 		font-size: 1rem;
+		text-align: left;
+		width: 90%;
 	}
 	.descripcion {
 		font-size: .85rem;
-		line-height: 3ch;
+		line-height: 2ch;
 		padding: 0 1rem;
 		width: 90%;
+		text-align: left;
 	}
 	.precio {
 		font-size: 1.5rem;
@@ -99,21 +121,25 @@ img {
 .detail-buttons {
 	margin: 1rem auto;
 	justify-content: center;
-	width: 70%;
+	width: 80%;
 	height: fit-content;
-	background-color: black;
-	border-radius: 22%;
+	/* background-color: gray; */
+	/* border-radius: 25%; */
+	/* background-image: url("https://i.ibb.co/fYK2cDJ/fondo-cart-button.webp"); */
+	background-size: cover;
+	border-image-slice: fill;
 }
 
 .info-buttons {
-	width: 70%;
+	width: 80%;
 	height: fit-content;
 	color: whitesmoke;
 	margin: auto;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 1.25rem;
+	font-size: 1rem;
+	
 	
 
 	.boton-cantidad {
@@ -125,6 +151,7 @@ img {
 		.number-input {
 			display: flex;
 			width: 5ch;
+			border-radius: 10px;
 		}
 	}
 
@@ -132,6 +159,8 @@ img {
 		display: flex;
 		margin: 1rem;
 		align-items: center;
+		width: 100%;
+		height: auto;
 		/* justify-content: flex-end; */
 	}
 	
@@ -141,7 +170,7 @@ img {
 		background-color: #0d426b;
 		border: 2px solid #1e1e1e1a;
 		cursor: pointer;
-		border-radius: 5%;
+		border-radius: 30px;
 		color: whitesmoke;
 	}
 	
@@ -164,13 +193,9 @@ img {
 }
 
 
-
-
-
 /*
 estilos boton cart button
 */
-
 
 
 .container-cart-button {
@@ -186,7 +211,7 @@ estilos boton cart button
 	background-color: #0d426b;
 	border: 2px solid #1e1e1e1a;
 	cursor: pointer;
-	border-radius: 5%;
+	border-radius: 30px;
 	color: whitesmoke;
 }
 
@@ -206,47 +231,103 @@ estilos boton cart button
 }
 
 
-@media  screen and (width < 850px) {
+@media  screen and (width < 790px) {
 	.product-main-container {
 		flex-direction: column;
+		contain: content;
+		margin: 3.5rem auto;
+		width: 100%;
+		height: auto;
+
 
 		.main-header-product {
 			flex-direction: row;
+			contain: content;
+			height: 15%;
+			width: 100%;
+			margin: auto;
+			/* margin-top: 4rem; */
 
 			.titulo {
 				font-size: 1.5rem;
 				font-weight: 600;
+				contain: content;
+				margin-top: 1.5rem;
+
 			}
 
-			.section-img {
-				display: block;
+			.img-info-container {
+				display: flex;
 				flex-direction: column;
-				flex-wrap: wrap;
-				width: 100%;
 				margin: auto;
-				align-items: center;
-				justify-content: center;
-			}
-	
-			.info-section {
-				display: block;
-				flex-direction: column;
-				flex-wrap: wrap;
 				width: 80%;
-				margin: 0 auto;
-				justify-content: center;
+				height: 80%;
 				align-items: center;
-			}
+				justify-content: center;
+				contain: content;
+				object-fit: cover;
+				text-align: center;
 
+				.section-img {
+					display: inline-flex;
+					flex-direction: column;
+					flex-wrap: wrap;
+					width: 100%;
+					height: 50%;
+					margin: 0.5rem;
+					align-items: center;
+					justify-content: center;
+					contain: content;
+					text-align: center;
+					object-fit: cover;
+
+
+					.img-container>img {
+						display: flex;
+						width: 90%;
+						height: 40%;
+						margin: auto;
+						align-items: center;
+						justify-content: center;
+						object-fit: cover;
+
+						.img {
+							display: flex;
+							width: 60%;
+							height: 30%;
+							aspect-ratio: 1/1;
+							object-fit: cover;
+						}
+
+					}
+				}
+		
+				.info-section {
+					display: flex;
+					width: 90%;
+					height: 20%;
+					text-align: center;
+					justify-content: center;
+					align-items: center;
+					margin: auto;
+				
+					}
+				}
+			}
 			.container-cart-button {
 				display: flex;
 				margin: .5rem auto;
 				align-items: center;
 				font-size: 1rem;
+				width: 100%;
+				height: 20%;
+				align-items: center;
+				justify-items: center;
 			}
 		}
-	}
 }
+
+
 
 @media  screen and (width < 600px) {
 	.titulo {
@@ -256,25 +337,39 @@ estilos boton cart button
 		width: 80%;
 		margin: auto;
 	}
+	.titulo-producto{
+		font-size: 1rem;
+	}
+
+	.categoria{
+		font-size: 0.75rem;
+	}
+	.descripcion{
+		font-size: 0.5rem;
+	}
+	.precio{
+		font-size: 1rem;
+	}
 
 	.info-buttons {
 		width: 90%;
 		margin: 1rem auto;
-
+	}
 		.boton-cantidad {
 			display: flex;
 			margin: .5rem auto;
 			align-items: center;
-			font-size: .75rem;
-
+			font-size: 1rem;
+	}
 			
 			.number-input {
 				display: flex;
-				width: 4ch;
-				height: 4ch;
+				width: 5ch;
+				height: 5ch;
+				border-radius: 10px;
 			}
 			
-		}
+		
 	.container-cart-button {
 		display: flex;
 		margin: .5rem auto;
@@ -282,7 +377,7 @@ estilos boton cart button
 		font-size: .75rem;
 	}
 }
-}
+
 
 		
 		

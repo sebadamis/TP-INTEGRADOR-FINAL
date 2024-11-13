@@ -1,3 +1,7 @@
+.titulo-sub-container{
+	border-radius: 15px;
+}
+
 .eshop-section{
 	display: flex;
 	flex-direction: row;
@@ -7,6 +11,7 @@
 	justify-content: space-evenly;
 	align-items: center;
 	margin: 1rem auto;
+	
 	
 	.about-us-img-container{
 		display: flex;

@@ -59,29 +59,32 @@ export default function Register() {
             completa el formulario con tus datos
           </div>
         </div>
+        {/* contenedor del formulario */}
+
         <div className="formulario-container">
           <form className="formulario" onSubmit={handleSubmit(onRegister)}>
-            <h3 className="titulo-formulario">Formulario de Registro se Usuario</h3>
+            <h3 className="titulo-formulario">Registro de Usuarios</h3>
             <div className="input-group">
-              <label htmlFor="#nombre-completo">Nombre Completo:</label>
+              <label htmlFor="#nombre-completo" className="input-label">Nombre de Usuario:</label>
               <input
                 type="text"
                 id="nombre-completo"
+                placeholder="Juan Perez"
+                autoFocus=""
                 {...register("name", {
                   required: true,
                   minLength: 5,
                   maxLength: 50,
-                  autoFocus: "",
-                  placeholder: "Juan Perez"
                 })} />
                 { errors.name && <div className="input-error">Debe ingresar su nombre de usuario</div> }
               
             </div>
             <div className="input-group">
-              <label htmlFor="#e-mail">E-mail: </label>
+              <label htmlFor="#e-mail" className="input-label">E-mail: </label>
               <input
                 type="email"
                 id="e-mail"
+                placeholder="mail@mail.com"
                 {...register("email", {
                   placeholder: "user@mail.com",
                   pattern: "[A-Za-z0-9._+\n-']+@[A-Za-z0-9.\n-]+\n.[A-Za-z]{2,}$",
@@ -93,10 +96,11 @@ export default function Register() {
             { errors.email && <div className="input-error">Debe ingresar su mail</div> }
 
             <div className="input-group">
-              <label htmlFor="#password">Contraseña: </label>
+              <label htmlFor="#password" className="input-label">Contraseña: </label>
               <input
                 type="password"
                 id="password"
+                placeholder="*****"
                 {...register("password",{
                   minLength: 3,
                   maxLength: 20,
@@ -108,7 +112,7 @@ export default function Register() {
             
 
             <div className="input-group">
-              <label htmlFor="#pais">País: </label>
+              <label htmlFor="#pais" className="input-label">País: </label>
               <select name="pais" id="pais" {...register("pais",{
                 defaultValue: "ARGENTINA", required: true
               })}>
@@ -125,19 +129,20 @@ export default function Register() {
 
 
             <div className="input-group">
-              <label htmlFor="">Avatar (Subir una imagen)</label>
-              <input type="file" {...register("image") } />
+              <label htmlFor="" className="input-label">Imagen del Usuario: (Subir una imagen)</label>
+              <input type="file" className="input-file" {...register("image") } />
             </div>
             { errors.image && <div className="input-error">Debe subir una Imagen</div> }
 
             <div className="input-group">
-              <label htmlFor="#comentario">Escriba una Observación: </label>
+              <label htmlFor="#comentario" className="input-label">Escriba un Comentario: </label>
               <textarea
                 name="comentario"
                 id="comentario"
+                placeholder="Escribí tu comentario aquí"
               {...register("comment",{
                 placeholder: "Escriba un comentario",
-                minLength: 10,
+                minLength: 7,
                 maxLength: 120,
                 defaultValue: ""
               })}/>
@@ -146,8 +151,8 @@ export default function Register() {
 
             <div className="input-group-boton">
                       
-              <button type="submit"  disabled={ !isValid }>Enviar Registro</button>
-              <button type="reset" onClick={() => reset()}>Borrar todo</button>
+              <button type="submit" className="button" disabled={ !isValid }>Enviar Registro</button>
+              <button type="reset" className="button" onClick={() => reset()}>Borrar todo</button>
               
             </div>
           </form>

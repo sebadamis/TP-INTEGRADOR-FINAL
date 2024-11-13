@@ -28,6 +28,7 @@ export default function Contact() {
                       minLength={4}
                       maxLength={80}
                       autoFocus=""
+                      placeholder='Juan Doe'
                     />
                   </div>
                   <div className="input-group">
@@ -52,7 +53,7 @@ export default function Contact() {
                     <textarea
                       name="comentario"
                       id="comentario"
-                      placeholder="escribe tu comentario aqui"
+                      placeholder="Escriba su comentario aquí"
                       maxLength={150}
                       defaultValue={""}
                     />

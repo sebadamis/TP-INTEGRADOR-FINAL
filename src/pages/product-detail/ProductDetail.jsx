@@ -59,31 +59,33 @@ export default function ProductDetail() {
                     <div className="main-header-product">
                         <h1 className="titulo">Detalles del Producto</h1>
                         
-                        <section className="section-img">
-                            <div className="img-container">
-                                <img
-                                src={`${URL}/images/products/${products.image}`}
-                                alt={products.name}
-                                />
-                            </div>
-                        </section>
-    
-                        <section className="info-section">
-                            <div className="text-info-container">
-                                <p className="titulo-producto">
-                                    {products.name}
-                                </p>
-                                <p className="categoria">
-                                    Categoría: {products.category}        
-                                </p>
-                                <p className="descripcion">
-                                    Descripción: {products.description}
-                                </p>
-                                <p className="precio">
-                                    Precio: $ <strong>{products.price}</strong>
-                                </p>
-                            </div>
-                        </section>
+                        <div className="img-info-container">
+                            <section className="section-img">
+                                <div className="img-container">
+                                    <img className="img"
+                                    src={`${URL}/images/products/${products.image}`}
+                                    alt={products.name}
+                                    />
+                                </div>
+                            </section>
+        
+                            <section className="info-section">
+                                <div className="text-info-container">
+                                    <p className="titulo-producto">
+                                        {products.name}
+                                    </p>
+                                    <p className="categoria">
+                                        Categoría: {products.category}        
+                                    </p>
+                                    <p className="descripcion">
+                                        Descripción: {products.description}
+                                    </p>
+                                    <p className="precio">
+                                        Precio: $ <strong>{products.price}</strong>
+                                    </p>
+                                </div>
+                            </section>
+                        </div>
     
                         <section className="detail-buttons">
     

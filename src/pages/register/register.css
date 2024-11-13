@@ -18,40 +18,61 @@ body {
 }
 
 .formulario-container {
+    display: flex;
     color: white;
     background-color: #340aa8;
     padding: 1rem;
-    background-image: url("https://i.ibb.co/pyQSgXZ/fondo-contacto.webp");
-    background-repeat: repeat;
+    background-image: url("https://i.ibb.co/bHbZZ2y/fondo-registro.jpg");
     margin: auto;
     justify-content: center;
     flex-shrink: 2;
-    width: 100%;
+    width: 90%;
     height: auto;
-    border-radius: 15%;
+    contain: content;
+    border-radius: 30px;
+
+    .formulario{
+        display: block;
+        width: 90%;
+        height: auto;
+        font-size: 1.25rem;
+    }
     
     .input-group {
         display: flex;
         flex-direction: column;
         margin: 1rem auto;
-        width: 25rem;
         height: auto;
-        margin: 1rem auto;
-        width: 70%;
+        width: 90%;
         height: auto;
+        color: whitesmoke;
+        font-weight: 800;
+        contain: content;
         
 
-        .inpu-label {
-            font-size: 1rem;
-            margin: 1rem;
+        /* .input-label {
+            font-size: 1.25rem;
+            margin: 0.25rem 0;
             text-align: left;
+        } */
+
+        .input-file{
+            display: flex;
+            color: whitesmoke;
+            font-weight: 600;
+            background-color: #505050c6;
+            font-size: 0.75rem;
         }
 
         input, textarea, select {
+            display: flex;
             padding: 0.5rem;
             color: #222;
             outline: none;
             border: none;
+            text-overflow: ellipsis;
+            font-size: 1rem;
+            
 
         }
 
@@ -63,35 +84,87 @@ body {
     }
 
     .input-group-boton {
-    flex-direction: row;
-    flex-wrap: wrap;
-    display: flex;
-    margin: 1rem auto;
-    justify-content: space-around;
-    width: 60%;
-    height: auto;
+        flex-direction: row;
+        display: flex;
+        margin: 1rem auto;
+        justify-content: space-around;
+        width: 70%;
+        height: auto;
         
-        button {
+        .button {
                 flex-direction: row;
-                flex-wrap: wrap;
-                display: flexbox;
-                margin: 1rem auto;
+                margin: 1rem;
                 padding: 0.5rem;
                 background-color: #222;
                 border-radius: 15px;
                 color: white;
                 outline: none;
                 border: none;
-                width: 15rem;
+                /* width: 15rem; */
+                width: 70%;
                 cursor: pointer;
+            
+            &:hover{
+                background-color: #505050;
+            }
         }
     }
 }
 
 
 
-.formulario-container {
-    width: 70%;
-    height: auto;
-    margin:  2rem auto;
+@media screen and ( width < 900px){ 
+    .formulario-containter{
+        margin: 1rem auto;
+        width: 100%;
+        height: auto;
+        contain: content;
+    }
+        .formulario{
+            font-weight: 400;
+            font-size: 1rem;
+            width: 90%;
+            height: auto;
+            margin: auto;
+            contain: content;
+
+        }
+            .input-group-boton{
+                display: flex;
+                flex-wrap: wrap;
+                width: 80%;
+                height: auto;
+                contain: content;
+                font-size: 0.75rem;
+                align-items: center;
+                justify-content: center;
+                padding: 0.5rem;
+                text-align: center;
+                margin: auto;
+            }
+                .button {
+                    display: flex;
+                    flex-wrap: wrap;
+                    width: 50%;
+                    height: auto;
+                    font-size: 0.75rem;
+                    cursor: pointer;
+                    margin: auto;
+                    text-align: center;
+                    justify-content: center;
+                    align-content: center;
+                    contain: content;
+                }
+
+                input, textarea, select {
+                    font-size: 0.5rem;
+                    display: flex;
+                    contain: content;
+                }
+
+                .input-label{
+                    font-size: 0.75rem;
+                }
 }
+        
+    
