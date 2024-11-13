@@ -34,7 +34,7 @@ export default function Login() {
                             {...register("email", {
                             placeholder: "user@mail.com",
                             pattern: "[A-Za-z0-9._+\n-']+@[A-Za-z0-9.\n-]+\n.[A-Za-z]{2,}$",
-                            minLength: 15,
+                            minLength: 5,
                             maxLength: 50,
                             required: true
                             })}/>

@@ -6,7 +6,7 @@ import "../../styles/form.css";
 import Swal from "sweetalert2";
 import "./adminuser.css";
 import { useUser } from "../../context/UserContext";
-// import SelectOptionForm from "../../components/select-option-form/SelecOptionForm";
+
 
 
 
@@ -133,7 +133,7 @@ export default function AdminUser() {
                 formData.append("image", usuario.image[0]);
             }
 
-            // problema al capturar valor del option boton (pais)
+            
 
             if(selectedUser) {
                 
@@ -190,7 +190,6 @@ export default function AdminUser() {
     }
 
     // # Editar productos
-    // crear un función para obtener los datos del producto a editar
     function handleEditUser(usuario) {
 
         // console.log("Usuario a editar", usuario);
@@ -202,7 +201,6 @@ export default function AdminUser() {
     return (
         <>
             <div className="user-container">
-                {/* Contenedor del formulario */}
                 <div className="form-container">
                     <h1>Admin User</h1>
                     <form className="admin-form" onSubmit={handleSubmit(onUserSubmit)}>
@@ -249,7 +247,6 @@ export default function AdminUser() {
                                 <option value="PARAGUAY">Paraguay</option>
                                 <option value="VENEZUELA">Venezuela</option>
 
-                            {/* <SelectOptionForm/> */}
 
                             </select>
                         </div>
@@ -276,7 +273,6 @@ export default function AdminUser() {
 
                     </form>
                 </div>
-                {/* Contenedor de la tabla de productos */}
                 <div className="table-container">
 
                     <UserTable  key={users._id}

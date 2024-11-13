@@ -6,7 +6,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function OrderDialog() {
 
-    const { order, toggleModal, setToggleModal, total, createOrder } = useOrder();
+                                                        // getOrders
+    const { order, toggleModal, setToggleModal, total, createOrder, getOrders } = useOrder();
 
     if(!toggleModal) return;
 
@@ -41,8 +42,8 @@ export default function OrderDialog() {
                         Cerrar
                     </button>
 
-
-                    <button className="btn" onClick={()=> createOrder()}>
+                                                            {/* getOrders(); */}
+                    <button className="btn" onClick={()=> { createOrder(); getOrders(); }}>
                         Finalizar compra
                     </button>
                 </div>

@@ -9,6 +9,7 @@ const OrderContext = createContext();
 
 export const useOrder = () => useContext(OrderContext);
 
+
 export default function OrderProvider({ children }) {
 
     const { user } = useUser();
@@ -17,6 +18,8 @@ export default function OrderProvider({ children }) {
     const [ order, setOrder ] = useState([]);
     const [ toggleModal, setToggleModal ] = useState(false)
     const [ total, setTotal ] = useState(0);
+
+    // const [ orders, setOrders ] = useState([]);
 
     useEffect(() => {
         //Volver a calcular el total de productos
@@ -120,7 +123,7 @@ export default function OrderProvider({ children }) {
                 icon: "success"
             })
             // mostar order de compra del usuario en consola
-            console.log(products);
+            console.log("createOrder()", products);
     
     
             await axios.post(`${URL}/orders`, {products, user: user._id, total},
@@ -134,10 +137,31 @@ export default function OrderProvider({ children }) {
         } catch (error) {
             console.log(error);
         }
+    }
 
-        
+    async function getOrders(){
+
+
+        try {
+            
+
+            const response = await axios.get(`${URL}/orders`,
+                {
+                headers: {
+                    Authorization: token
+                }
+            });
+
+            console.log("getOrders()", response.data.orders);
+
+        } catch (error) {
+            console.log(error)
+        }
 
     }
+
+
+    
 
     return (
         <OrderContext.Provider
@@ -150,7 +174,8 @@ export default function OrderProvider({ children }) {
                 total,
                 removeProduct,
                 changeItemQuantity,
-                createOrder
+                createOrder,
+                getOrders
             }}
         >
             { children }
